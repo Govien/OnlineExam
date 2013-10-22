@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A7DDA0F9-527C-4DB9-9196-19973B6FA3F2</string>
+	<string>8521E6B6-82A7-4FC4-921D-96A4CDA46ACB</string>
 	<key>IDESourceControlProjectName</key>
 	<string>OnlineExam</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>84B4EB1E-5953-47EE-BBE7-EED2C730B4DE</key>
+		<key>FA473F9B-6F97-410C-948E-5CA468D6D80A</key>
 		<string>https://github.com/Govien/OnlineExam.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>OnlineExam.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>84B4EB1E-5953-47EE-BBE7-EED2C730B4DE</key>
+		<key>FA473F9B-6F97-410C-948E-5CA468D6D80A</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>84B4EB1E-5953-47EE-BBE7-EED2C730B4DE</string>
+	<string>FA473F9B-6F97-410C-948E-5CA468D6D80A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>84B4EB1E-5953-47EE-BBE7-EED2C730B4DE</string>
+			<string>FA473F9B-6F97-410C-948E-5CA468D6D80A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>OnlineExam</string>
 		</dict>

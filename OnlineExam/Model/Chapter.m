@@ -11,7 +11,7 @@
 @implementation Chapter
 
 - (id)initWithID:(int)ID bookId:(int)bookId name:(NSString *)name totalCount:(int)totalCount doneCount:(int)doneCount rightCount:(int)rightCount errorCount:(int)errorCount no:(int)no {
-    self = [self init];
+    self = [super init];
     if (self) {
         _ID = ID;
         _bookId = bookId;

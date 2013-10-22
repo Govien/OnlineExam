@@ -11,7 +11,7 @@
 @implementation Question
 
 - (id)initWithID:(int)ID chapterId:(int)chapterId bookId:(int)bookId no:(int)no title:(NSString *)title tip:(NSString *)tip type:(int)type key:(NSString *)key {
-    self = [self init];
+    self = [super init];
     if (self) {
         _ID = ID;
         _chapterId = chapterId;

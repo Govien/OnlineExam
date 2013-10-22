@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4141487A181684DC00830B78 /* line1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414879181684DC00830B78 /* line1.png */; };
+		4141487D18168AD900830B78 /* OptionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4141487C18168AD900830B78 /* OptionButton.m */; };
+		4141488018168AF000830B78 /* CheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 4141487F18168AF000830B78 /* CheckBox.m */; };
+		41414885181690AD00830B78 /* ic_multi_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414881181690AD00830B78 /* ic_multi_check.png */; };
+		41414886181690AD00830B78 /* ic_multi.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414882181690AD00830B78 /* ic_multi.png */; };
+		41414887181690AD00830B78 /* ic_radio_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414883181690AD00830B78 /* ic_radio_check.png */; };
+		41414888181690AD00830B78 /* ic_radio.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414884181690AD00830B78 /* ic_radio.png */; };
+		4141488B18169F6200830B78 /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = 4141488A18169F6200830B78 /* Option.m */; };
 		4142771F180FE25D0096661F /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4142771E180FE25D0096661F /* StringUtil.m */; };
 		419D787C181557C000D8B28D /* ic_item_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 419D787B181557C000D8B28D /* ic_item_right.png */; };
 		41A67AAC1812193F00ABE38F /* VCBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A67AA91812193F00ABE38F /* VCBook.m */; };
@@ -104,6 +112,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41414879181684DC00830B78 /* line1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line1.png; sourceTree = "<group>"; };
+		4141487B18168AD900830B78 /* OptionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionButton.h; sourceTree = "<group>"; };
+		4141487C18168AD900830B78 /* OptionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionButton.m; sourceTree = "<group>"; };
+		4141487E18168AF000830B78 /* CheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
+		4141487F18168AF000830B78 /* CheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBox.m; sourceTree = "<group>"; };
+		41414881181690AD00830B78 /* ic_multi_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_multi_check.png; sourceTree = "<group>"; };
+		41414882181690AD00830B78 /* ic_multi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_multi.png; sourceTree = "<group>"; };
+		41414883181690AD00830B78 /* ic_radio_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_radio_check.png; sourceTree = "<group>"; };
+		41414884181690AD00830B78 /* ic_radio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_radio.png; sourceTree = "<group>"; };
+		4141488918169F6200830B78 /* Option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Option.h; sourceTree = "<group>"; };
+		4141488A18169F6200830B78 /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Option.m; sourceTree = "<group>"; };
 		4142771D180FE25D0096661F /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
 		4142771E180FE25D0096661F /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
 		419D787B181557C000D8B28D /* ic_item_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_item_right.png; sourceTree = "<group>"; };
@@ -402,10 +421,15 @@
 				41B21202180EAACA005240F9 /* ic_close.png */,
 				41B21201180EAACA005240F9 /* ic_close_active.png */,
 				419D787B181557C000D8B28D /* ic_item_right.png */,
+				41414882181690AD00830B78 /* ic_multi.png */,
+				41414881181690AD00830B78 /* ic_multi_check.png */,
+				41414884181690AD00830B78 /* ic_radio.png */,
+				41414883181690AD00830B78 /* ic_radio_check.png */,
 				41ACF92718160E6400EC29A6 /* ic_right.png */,
 				41ACF92C18160FAA00EC29A6 /* item1.png */,
 				41ACF92D18160FAA00EC29A6 /* item2.png */,
 				41ACF92F18160FAA00EC29A6 /* item3.jpg */,
+				41414879181684DC00830B78 /* line1.png */,
 				41A67ABF18121A4600ABE38F /* navbar.png */,
 				41A67AC218121A4600ABE38F /* recipe_tab_1.png */,
 				41A67AC318121A4600ABE38F /* recipe_tab_1@2x.png */,
@@ -428,8 +452,12 @@
 			children = (
 				41A67AAE18121A1400ABE38F /* BookView.h */,
 				41A67AAF18121A1400ABE38F /* BookView.m */,
+				4141487E18168AF000830B78 /* CheckBox.h */,
+				4141487F18168AF000830B78 /* CheckBox.m */,
 				41E6910718114084002FC35F /* MBProgressHUD */,
 				41A67AE01812263700ABE38F /* PDColoredProgressView */,
+				4141487B18168AD900830B78 /* OptionButton.h */,
+				4141487C18168AD900830B78 /* OptionButton.m */,
 				41A67AB018121A1400ABE38F /* RecipeSegmentControl */,
 				41B526DE181114CA00BBD5A4 /* Toast */,
 			);
@@ -518,16 +546,18 @@
 			children = (
 				41FEF0F61810329F00C39273 /* Book.h */,
 				41FEF0F71810329F00C39273 /* Book.m */,
+				41ACF9391816393000EC29A6 /* Chapter.h */,
+				41ACF93A1816393000EC29A6 /* Chapter.m */,
+				4141488918169F6200830B78 /* Option.h */,
+				4141488A18169F6200830B78 /* Option.m */,
 				41FEF0F81810329F00C39273 /* OrderItem.h */,
 				41FEF0F91810329F00C39273 /* OrderItem.m */,
+				41ACF93C1816684E00EC29A6 /* Question.h */,
+				41ACF93D1816684E00EC29A6 /* Question.m */,
 				41FEF11318103EFA00C39273 /* Result.h */,
 				41FEF11418103EFA00C39273 /* Result.m */,
 				41B526DA1810FFA300BBD5A4 /* UserInfo.h */,
 				41B526DB1810FFA300BBD5A4 /* UserInfo.m */,
-				41ACF9391816393000EC29A6 /* Chapter.h */,
-				41ACF93A1816393000EC29A6 /* Chapter.m */,
-				41ACF93C1816684E00EC29A6 /* Question.h */,
-				41ACF93D1816684E00EC29A6 /* Question.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -625,12 +655,15 @@
 				41A67AD418121A4600ABE38F /* recipe_tab_1_active.png in Resources */,
 				41ACF93618160FAA00EC29A6 /* item3.jpg in Resources */,
 				41B2120E180EB189005240F9 /* btn_blue.png in Resources */,
+				41414886181690AD00830B78 /* ic_multi.png in Resources */,
 				41B21200180E9CDC005240F9 /* bg_login.jpg in Resources */,
 				41A67ADF18121A4600ABE38F /* recipe_tab_3@2x.png in Resources */,
 				41A67ADA18121A4600ABE38F /* recipe_tab_2.png in Resources */,
 				41A67AD718121A4600ABE38F /* recipe_tab_1@2x.png in Resources */,
 				41ACF93418160FAA00EC29A6 /* item2.png in Resources */,
+				41414888181690AD00830B78 /* ic_radio.png in Resources */,
 				41ACF93018160FAA00EC29A6 /* bg_book.png in Resources */,
+				4141487A181684DC00830B78 /* line1.png in Resources */,
 				41ACF93318160FAA00EC29A6 /* item1.png in Resources */,
 				41A67ACD18121A4600ABE38F /* bg1.png in Resources */,
 				41B211F9180E9874005240F9 /* Main.storyboard in Resources */,
@@ -640,8 +673,10 @@
 				41A67ADC18121A4600ABE38F /* recipe_tab_3_active.png in Resources */,
 				41A67ADE18121A4600ABE38F /* recipe_tab_3.png in Resources */,
 				41ACF93218160FAA00EC29A6 /* bg5.jpg in Resources */,
+				41414887181690AD00830B78 /* ic_radio_check.png in Resources */,
 				41B211DC180E96E0005240F9 /* Images.xcassets in Resources */,
 				41B2120D180EB189005240F9 /* btn_blue_active.png in Resources */,
+				41414885181690AD00830B78 /* ic_multi_check.png in Resources */,
 				41A67AD818121A4600ABE38F /* recipe_tab_2_active.png in Resources */,
 				41A67ACE18121A4600ABE38F /* bg2.png in Resources */,
 				41B21203180EAACA005240F9 /* ic_close_active.png in Resources */,
@@ -667,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4141488018168AF000830B78 /* CheckBox.m in Sources */,
 				41FEF1031810329F00C39273 /* AFURLConnectionOperation.m in Sources */,
 				41A67AB618121A1400ABE38F /* RecipeSegmentControl.m in Sources */,
 				41ACF9441816792400EC29A6 /* VCQuestion.m in Sources */,
@@ -675,6 +711,7 @@
 				41A67AE41812263700ABE38F /* drawing.m in Sources */,
 				41FEF11518103EFA00C39273 /* Result.m in Sources */,
 				41A67AAC1812193F00ABE38F /* VCBook.m in Sources */,
+				4141488B18169F6200830B78 /* Option.m in Sources */,
 				41FEF1001810329F00C39273 /* AFJSONRequestOperation.m in Sources */,
 				41FEF0FE1810329F00C39273 /* AFHTTPRequestOperation.m in Sources */,
 				41FEF0FA1810329F00C39273 /* DataHelper.m in Sources */,
@@ -687,6 +724,7 @@
 				4142771F180FE25D0096661F /* StringUtil.m in Sources */,
 				41B211FD180E9B0C005240F9 /* VCLogin.m in Sources */,
 				41FEF0FC1810329F00C39273 /* MessageHandler.m in Sources */,
+				4141487D18168AD900830B78 /* OptionButton.m in Sources */,
 				41FEF1071810329F00C39273 /* Book.m in Sources */,
 				41FEF0FF1810329F00C39273 /* AFImageRequestOperation.m in Sources */,
 				41FEF1011810329F00C39273 /* AFNetworkActivityIndicatorManager.m in Sources */,
