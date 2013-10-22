@@ -35,10 +35,24 @@
     }];
 }
 
-- (void)getOrderItemsOfUser:(NSString *)username password:(NSString *)password {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getOrderItems", @"action_path", username, @"username", password, @"password", nil];
+- (void)getOrderItemsOfUser:(int)userId {
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getOrderItems", @"action_path", userId, @"userId", nil];
     [HttpUtil doPostWithBaseUrl:URL_SERVER params:params callback:^(BOOL isSuccessed, Result *result) {
         [self callback:DATA_GET_ORDERITEMS result:result];
+    }];
+}
+
+- (void)getBookInfo:(int)bookId {
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getBookInfo", @"action_path", [NSNumber numberWithInt:bookId], @"bookId", nil];
+    [HttpUtil doPostWithBaseUrl:URL_SERVER params:params callback:^(BOOL isSuccessed, Result *result) {
+        [self callback:DATA_GET_BOOKINFO result:result];
+    }];
+}
+
+- (void)getChaptersOfBook:(int)bookId userId:(int)userId {
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getChapters", @"action_path", [NSNumber numberWithInt:bookId], @"bookId", [NSNumber numberWithInt:userId], @"userId", nil];
+    [HttpUtil doPostWithBaseUrl:URL_SERVER params:params callback:^(BOOL isSuccessed, Result *result) {
+        [self callback:DATA_GET_CHAPTERS result:result];
     }];
 }
 

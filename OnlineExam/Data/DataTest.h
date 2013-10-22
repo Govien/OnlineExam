@@ -9,6 +9,5 @@
 @interface DataTest : NSObject
 
 + (NSString *)getData:(NSString *) url;
-+ (NSDictionary *)getOrderItemsOfUser:(NSString *)username password:(NSString *)password;
 
 @end

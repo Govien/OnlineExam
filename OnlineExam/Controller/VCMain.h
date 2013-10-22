@@ -9,8 +9,8 @@
 #import "MessageHandler.h"
 #import "BookView.h"
 
-@interface VCMain : UIViewController<Handler, BookDelegate>
+@interface VCMain : UIViewController
 
-@property NSDictionary *orderItems;
+@property (nonatomic,retain)NSDictionary *orderItems;
 
 @end
