@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DFC8CFBC-A15E-41ED-8F96-03A4864B61F1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OnlineExam</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FA473F9B-6F97-410C-948E-5CA468D6D80A</key>
+		<string>https://github.com/Govien/OnlineExam.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OnlineExam.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FA473F9B-6F97-410C-948E-5CA468D6D80A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Govien/OnlineExam.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FA473F9B-6F97-410C-948E-5CA468D6D80A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FA473F9B-6F97-410C-948E-5CA468D6D80A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OnlineExam</string>
+		</dict>
+	</array>
+</dict>
+</plist>
