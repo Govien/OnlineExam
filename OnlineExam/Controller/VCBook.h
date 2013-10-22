@@ -5,10 +5,11 @@
 //  Created by Goven on 13-10-14.
 //  Copyright (c) 2013年 Goven. All rights reserved.
 //
-#import "Book.h"
+@class OrderItem;
 
 @interface VCBook : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property(nonatomic,retain)Book *book;
+@property(nonatomic,retain)OrderItem *orderItem;
+@property (strong, nonatomic) IBOutlet UIProgressView *abc;
 
 @end

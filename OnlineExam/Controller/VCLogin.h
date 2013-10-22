@@ -6,6 +6,8 @@
 //  Copyright (c) 2013年 Goven. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 @interface VCLogin : UIViewController<UITextFieldDelegate>
 
 @end

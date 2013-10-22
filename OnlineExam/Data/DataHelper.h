@@ -19,10 +19,6 @@
 // 登录
 - (void)login:(NSString *)username password:(NSString *)password;
 // 获取用户订单集合
-- (void)getOrderItemsOfUser:(int)userId;
-// 获取习题相关信息
-- (void)getBookInfo:(int)bookId;
-// 根据习题ID和用户ID获取章节列表
-- (void)getChaptersOfBook:(int)bookId userId:(int)userId;
+- (void)getOrderItemsOfUser:(NSString *)username password:(NSString *)password;
 
 @end

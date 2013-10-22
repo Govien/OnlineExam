@@ -19,15 +19,4 @@
     return self;
 }
 
-+ (id)buildFromDictionary:(NSDictionary *)dictionary {
-    UserInfo *userInfo = [[UserInfo alloc] init];
-    userInfo.ID = [[dictionary objectForKey:@"ID"] intValue];
-    userInfo.username = [dictionary objectForKey:@"username"];
-    userInfo.password = [dictionary objectForKey:@"password"];
-    userInfo.email = [dictionary objectForKey:@"email"];
-    userInfo.mobile = [dictionary objectForKey:@"mobile"];
-    userInfo.sex = [dictionary objectForKey:@"sex"];
-    return userInfo;
-}
-
 @end

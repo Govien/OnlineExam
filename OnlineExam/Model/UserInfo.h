@@ -11,13 +11,12 @@
 @interface UserInfo : NSObject
 
 @property int ID;
-@property (strong,nonatomic)NSString *username;
-@property (strong,nonatomic)NSString *password;
-@property (strong,nonatomic)NSString *email;
-@property (strong,nonatomic)NSString *mobile;
-@property (strong,nonatomic)NSString *sex;
+@property NSString *username;
+@property NSString *password;
+@property NSString *email;
+@property NSString *mobile;
+@property NSString *sex;
 
 - (UserInfo *)initWithUsername:(NSString *)username password:(NSString *)password;
-+ (id)buildFromDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -9,13 +9,12 @@
 #import "VCLogin.h"
 #import "DataHelper.h"
 #import "VCMain.h"
-#import "UserInfo.h"
 
 
 @interface VCLogin ()<Handler> {
     UITextField *_tfEditing;
     DataHelper *_dataHelper;
-    NSUserDefaults *_userDefaults;
+    NSUserDefaults *_userDefaultes;
 }
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *layoutInit;// 初始化布局视图
@@ -61,8 +60,8 @@
     self.layoutLogin.frame = CGRectMake(frame.origin.x, self.view.frame.size.height, frame.size.width, frame.size.height);
     
     // 获取自动登录状态，登录服务器
-    _userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL autoLogin = [_userDefaults boolForKey:INFO_AUTO_LOGIN];
+    _userDefaultes = [NSUserDefaults standardUserDefaults];
+    BOOL autoLogin = [_userDefaultes boolForKey:INFO_AUTO_LOGIN];
     if (autoLogin) {
         self.layoutInit.hidden = YES;
         self.layoutAuto.hidden = NO;
@@ -77,7 +76,7 @@
 }
 
 - (void)endLoading {
-    [_dataHelper login:[_userDefaults stringForKey:INFO_USERNAME] password:[_userDefaults stringForKey:INFO_PASSWORD]];
+    [_dataHelper login:[_userDefaultes stringForKey:INFO_USERNAME] password:[_userDefaultes stringForKey:INFO_PASSWORD]];
 }
 
 - (IBAction)onButtonClicked:(UIButton *)sender {
@@ -172,9 +171,10 @@
 
 // 处理登录的结果
 - (void)handleLoginResult:(Result *)result {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (result.stateCode == STATE_FAIL) {
         [self.view makeToast:[NSString stringWithFormat:@"登录失败，%@！", result.message]];
-        [_userDefaults setBool:NO forKey:INFO_AUTO_LOGIN];
+        [userDefaults setBool:NO forKey:INFO_AUTO_LOGIN];
         if ([self.aivLoading isAnimating]) {
             [self.aivLoading stopAnimating];
             [self toggleLayout:self.layoutLogin turnOn:YES];
@@ -182,21 +182,22 @@
     } else if (result.stateCode == STATE_SUCCESS) {
         [self.view makeToast:@"登录成功！"];
         [self toggleLayout:_layoutLogin turnOn:NO];
-        UserInfo *userInfo = [UserInfo buildFromDictionary:result.content];
-        [_userDefaults setInteger:userInfo.ID forKey:INFO_USERID];
-        [_userDefaults setObject:userInfo.username forKey:INFO_USERNAME];
-        [_userDefaults setObject:userInfo.password forKey:INFO_PASSWORD];
+        NSDictionary *dictionary = result.content;
+        NSString *username = [dictionary objectForKey:@"username"];
+        NSString *password = [dictionary objectForKey:@"password"];
         if (_swAutoLogin.on) {
-            [_userDefaults setBool:YES forKey:INFO_AUTO_LOGIN];
+            [userDefaults setObject:username forKey:INFO_USERNAME];
+            [userDefaults setObject:password forKey:INFO_PASSWORD];
+            [userDefaults setBool:YES forKey:INFO_AUTO_LOGIN];
         } else {
-            [_userDefaults setBool:NO forKey:INFO_AUTO_LOGIN];
+            [userDefaults setBool:NO forKey:INFO_AUTO_LOGIN];
         }
         // 登录成功以后就开始获取用户订单
-        [_dataHelper getOrderItemsOfUser:userInfo.ID];
+        [_dataHelper getOrderItemsOfUser:username password:password];
     } else {
-        [_userDefaults setBool:NO forKey:INFO_AUTO_LOGIN];
+        [userDefaults setBool:NO forKey:INFO_AUTO_LOGIN];
     }
-    [_userDefaults synchronize];
+    [userDefaults synchronize];
 }
 
 - (IBAction)onValueChanged:(UISegmentedControl *)sender {

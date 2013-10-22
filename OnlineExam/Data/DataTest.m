@@ -8,9 +8,7 @@
 
 #import "DataTest.h"
 #import "OrderItem.h"
-#import "Book.h"
 #import "Result.h"
-#import "Chapter.h"
 
 @implementation DataTest
 
@@ -24,10 +22,6 @@
         
     } else if ([url isEqualToString:@"login"]) {
         
-    } else if ([url isEqualToString:@"getBookInfo"]) {
-        [dictionary setObject:[self getBookInfo] forKey:@"content"];
-    } else if ([url isEqualToString:@"getChapters"]) {
-        [dictionary setObject:[self getChapters] forKey:@"content"];
     }
     NSString *str = [dictionary JSONString];
     return str;
@@ -51,27 +45,6 @@
     NSArray *tests = [NSArray arrayWithObjects:[item0 convertToDictionary], [item1 convertToDictionary], [item2 convertToDictionary], [item3 convertToDictionary], [item4 convertToDictionary], nil];
     NSDictionary *orderItems = [NSDictionary dictionaryWithObjectsAndKeys:buys, @"buys", tests, @"tests", nil];
     return orderItems;
-}
-
-+ (NSDictionary *)getBookInfo {
-    Book *book = [[Book alloc] init];
-    book.ID = 1;
-    book.courseId = 1;
-    book.categoryId = 1;
-    book.courseName = @"四川省会计从业资格考试";
-    book.name = @"财经法规与职业道德";
-    book.price = 12.00;
-    return [book convertToDictionary];
-}
-
-+ (NSArray *)getChapters {
-    Chapter *chapter0 = [[Chapter alloc] initWithID:1 bookId:1 name:@"第一章 会计法律制度" totalCount:1012 doneCount:100 rightCount:84 errorCount:16 no:0];
-    Chapter *chapter1 = [[Chapter alloc] initWithID:1 bookId:1 name:@"第二章 支付结算法律制度" totalCount:1012 doneCount:0 rightCount:0 errorCount:0 no:1];
-    Chapter *chapter2 = [[Chapter alloc] initWithID:1 bookId:1 name:@"第三章 税收法律制度" totalCount:1012 doneCount:100 rightCount:80 errorCount:20 no:2];
-    Chapter *chapter3 = [[Chapter alloc] initWithID:1 bookId:1 name:@"第四章 财政法规制度" totalCount:1012 doneCount:0 rightCount:0 errorCount:0 no:3];
-    Chapter *chapter4 = [[Chapter alloc] initWithID:1 bookId:1 name:@"第五章 会计职业道德" totalCount:1012 doneCount:100 rightCount:100 errorCount:0 no:4];
-    Chapter *chapter5 = [[Chapter alloc] initWithID:1 bookId:1 name:@"案例综合题专项练习" totalCount:1012 doneCount:100 rightCount:80 errorCount:20 no:5];
-    return [NSArray arrayWithObjects:[chapter0 convertToDictionary], [chapter1 convertToDictionary], [chapter2 convertToDictionary], [chapter3 convertToDictionary], [chapter4 convertToDictionary], [chapter5 convertToDictionary], nil];
 }
 
 @end
