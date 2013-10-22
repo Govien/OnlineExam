@@ -10,8 +10,9 @@
 #import "VCBook.h"
 #import "RecipeSegmentControl.h"
 #import "DataHelper.h"
+#import "Book.h"
 
-@interface VCMain ()
+@interface VCMain ()<Handler, BookDelegate>
 {
     UIView *_segmentBg;
     UISegmentedControl *_segmentPurchase;// 已购买和试用的分段选择器
@@ -115,10 +116,14 @@
 }
 
 - (void)handleMessage:(Message *)message {
+    [self.view hideToastActivity];
     Result *result = message.obj;
-    switch (result.stateCode) {
+    switch (message.what) {
         case DATA_GET_ORDERITEMS:
             [self initBooks:result.content];
+            break;
+        case DATA_GET_BOOKINFO:
+            [self performSegueWithIdentifier:@"book" sender:[Book buildFromDictionary:result.content]];
             break;
         default:
             break;
@@ -127,7 +132,8 @@
 
 // 处理习题点击事件
 - (void)onBookClicked:(BookView *)bookView {
-    [self performSegueWithIdentifier:@"book" sender:bookView.orderItem];
+    [self.view makeToastActivity];
+    [_dataHelper getBookInfo:bookView.orderItem.bookId];
 }
 
 // 处理分段控件选择改变事件
@@ -151,7 +157,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"book"]) {
         VCBook *vcBook = [segue destinationViewController];
-        vcBook.orderItem = sender;
+        vcBook.book = sender;
     }
 }
 
