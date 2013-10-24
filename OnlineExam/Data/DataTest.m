@@ -11,6 +11,8 @@
 #import "Book.h"
 #import "Result.h"
 #import "Chapter.h"
+#import "Question.h"
+#import "Option.h"
 
 @implementation DataTest
 
@@ -28,6 +30,8 @@
         [dictionary setObject:[self getBookInfo] forKey:@"content"];
     } else if ([url isEqualToString:@"getChapters"]) {
         [dictionary setObject:[self getChapters] forKey:@"content"];
+    } else if ([url isEqualToString:@"getLaterQuestionsOfChapter"]) {
+        [dictionary setObject:[self getLaterQuestionsOfChapter] forKey:@"content"];
     }
     NSString *str = [dictionary JSONString];
     return str;
@@ -72,6 +76,22 @@
     Chapter *chapter4 = [[Chapter alloc] initWithID:1 bookId:1 name:@"第五章 会计职业道德" totalCount:1012 doneCount:100 rightCount:100 errorCount:0 no:4];
     Chapter *chapter5 = [[Chapter alloc] initWithID:1 bookId:1 name:@"案例综合题专项练习" totalCount:1012 doneCount:100 rightCount:80 errorCount:20 no:5];
     return [NSArray arrayWithObjects:[chapter0 convertToDictionary], [chapter1 convertToDictionary], [chapter2 convertToDictionary], [chapter3 convertToDictionary], [chapter4 convertToDictionary], [chapter5 convertToDictionary], nil];
+}
+
++ (NSArray *)getLaterQuestionsOfChapter {
+    Option *option0 = [[Option alloc] initWithID:1 questionId:1 text:@"资金投入" no:1 isKey:NO];
+    Option *option1 = [[Option alloc] initWithID:1 questionId:1 text:@"资源运用" no:2 isKey:YES];
+    Option *option2 = [[Option alloc] initWithID:1 questionId:1 text:@"资金退出" no:3 isKey:NO];
+    Option *option3 = [[Option alloc] initWithID:1 questionId:1 text:@"资金运用" no:4 isKey:YES];
+    NSArray *options = [NSArray arrayWithObjects:option0, option1, option2, option3, nil];
+    Question *question0 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:167 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:0 key:@"A,B,C" options:options];
+    Question *question1 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:168 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:1 key:@"A,B,C" options:options];
+    
+    Question *question2 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:169 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:2 key:@"A,B,C" options:options];
+    Question *question3 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:170 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:2 key:@"A,B,C" options:options];
+    Question *question4 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:171 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:1 key:@"A,B,C" options:options];
+    Question *question5 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:172 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:0 key:@"A,B,C" options:options];
+    return [NSArray arrayWithObjects:[question0 convertToDictionary], [question1 convertToDictionary], [question2 convertToDictionary], [question3 convertToDictionary], [question4 convertToDictionary], [question5 convertToDictionary], nil];
 }
 
 @end

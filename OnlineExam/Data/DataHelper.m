@@ -56,6 +56,13 @@
     }];
 }
 
+- (void)getLaterQuestionsOfChapter:(int)chapterId userId:(int)userId pageIndex:(int)pageIndex pageSize:(int)pageSize {
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getLaterQuestionsOfChapter", @"action_path", [NSNumber numberWithInt:chapterId], @"chapterId", [NSNumber numberWithInt:userId], @"userId", [NSNumber numberWithInt:pageIndex], @"pageIndex", [NSNumber numberWithInt:pageSize], @"pageSize", nil];
+    [HttpUtil doPostWithBaseUrl:URL_SERVER params:params callback:^(BOOL isSuccessed, Result *result) {
+        [self callback:DATA_GET_LATER_QUESTIONS result:result];
+    }];
+}
+
 - (void)callback:(int)tag result:(id)result {
     if (callbackHandler) {
         Message *msg = [Message obtain];

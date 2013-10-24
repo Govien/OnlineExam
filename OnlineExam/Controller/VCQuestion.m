@@ -7,9 +7,15 @@
 //
 
 #import "VCQuestion.h"
-#import "OptionButton.h"
+#import "OptionView.h"
+#import "DataHelper.h"
 
-@interface VCQuestion ()
+@interface VCQuestion ()<Handler, OptionDelegate> {
+    DataHelper *_dataHelper;
+    int _pageIndex;
+    NSArray *_questions;
+    OptionView *_optionView;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *lblNo;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
@@ -26,13 +32,30 @@
 {
     [super viewDidLoad];
 	self.title = _chapter.name;
-    Option *option = [[Option alloc] init];
-    option.ID = 1;
-    option.questionId = 1;
-    option.text = @"资金投入";
-    option.isKey = YES;
-    option.questionId = QuestionTypeRadio;
-    [_vContent addSubview:[[OptionButton alloc] initWithOption:option optionDelegate:nil]];
+    _dataHelper = [DataHelper init:self];
+    [_dataHelper getLaterQuestionsOfChapter:_chapter.ID userId:[[NSUserDefaults standardUserDefaults] integerForKey:INFO_USERID] pageIndex:_pageIndex pageSize:10];
+}
+
+- (void)initQuestionView:(NSArray *)questions {
+    _questions = questions;
+    _optionView = [[OptionView alloc] initWithQuestion:[Question buildFromDictionary:_questions[0]] chapter:_chapter optionDelegate:self];
+    [_vContent addSubview:_optionView];
+}
+
+- (void)handleMessage:(Message *)message {
+    [self.view hideToastActivity];
+    Result *result = message.obj;
+    switch (message.what) {
+        case DATA_GET_LATER_QUESTIONS:
+            [self initQuestionView:result.content];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)onOptionChecked:(Option *)option {
+    
 }
 
 - (IBAction)onButtonClicked:(UIButton *)sender {

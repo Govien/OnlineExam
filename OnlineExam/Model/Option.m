@@ -10,4 +10,30 @@
 
 @implementation Option
 
+- (id)initWithID:(int)ID questionId:(int)questionId text:(NSString *)text no:(int)no isKey:(BOOL)isKey {
+    self = [self init];
+    if (self) {
+        _ID = ID;
+        _questionId = questionId;
+        _text = text;
+        _no = no;
+        _isKey = isKey;
+    }
+    return self;
+}
+
++ (id)buildFromDictionary:(NSDictionary *)dictionary {
+    Option *option = [[Option alloc] init];
+    option.ID = [[dictionary objectForKey:@"ID"] intValue];
+    option.questionId = [[dictionary objectForKey:@"questionId"] intValue];
+    option.text = [dictionary objectForKey:@"text"];
+    option.no = [[dictionary objectForKey:@"no"] intValue];
+    option.isKey = [[dictionary objectForKey:@"isKey"] boolValue];
+    return option;
+}
+
+- (NSDictionary *)convertToDictionary {
+    return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:self.ID], @"ID", [NSNumber numberWithInt:self.questionId], @"questionId", self.text, @"text", [NSNumber numberWithInt:self.no], @"no",[NSNumber numberWithBool:self.isKey], @"isKey", nil];
+}
+
 @end

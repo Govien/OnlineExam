@@ -7,10 +7,11 @@
 //
 
 #import "Question.h"
+#import "Option.h"
 
 @implementation Question
 
-- (id)initWithID:(int)ID chapterId:(int)chapterId bookId:(int)bookId no:(int)no title:(NSString *)title tip:(NSString *)tip type:(int)type key:(NSString *)key {
+- (id)initWithID:(int)ID chapterId:(int)chapterId bookId:(int)bookId no:(int)no title:(NSString *)title tip:(NSString *)tip type:(int)type key:(NSString *)key options:(NSArray *)options {
     self = [super init];
     if (self) {
         _ID = ID;
@@ -21,6 +22,7 @@
         _tip = tip;
         _type = type;
         _key = key;
+        _options = options;
     }
     return self;
 }
@@ -35,11 +37,20 @@
     question.tip = [dictionary objectForKey:@"tip"];
     question.key = [dictionary objectForKey:@"key"];
     question.type = [[dictionary objectForKey:@"type"] intValue];
+    NSMutableArray *mutableOptions = [[NSMutableArray alloc] init];
+    for (NSDictionary *item in [dictionary objectForKey:@"options"]) {
+        [mutableOptions addObject:[Option buildFromDictionary:item]];
+    }
+    question.options = mutableOptions;
     return question;
 }
 
 - (NSDictionary *)convertToDictionary {
-    return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:self.ID], @"ID", [NSNumber numberWithInt:self.chapterId], @"chapterId", [NSNumber numberWithInt:self.bookId], @"bookId", [NSNumber numberWithInt:self.no], @"no", self.title, @"title", self.tip, @"tip", [NSNumber numberWithInt:self.type], @"type", self.key, @"key", nil];
+    NSMutableArray *optionDic = [[NSMutableArray alloc] init];
+    for (Option *option in _options) {
+        [optionDic addObject:[option convertToDictionary]];
+    }
+    return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:self.ID], @"ID", [NSNumber numberWithInt:self.chapterId], @"chapterId", [NSNumber numberWithInt:self.bookId], @"bookId", [NSNumber numberWithInt:self.no], @"no", self.title, @"title", self.tip, @"tip", [NSNumber numberWithInt:self.type], @"type", self.key, @"key", optionDic, @"options", nil];
 }
 
 @end

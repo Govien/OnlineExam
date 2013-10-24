@@ -16,8 +16,9 @@
 @property (strong,nonatomic)NSString *tip;// 答案提示
 @property int type;// 问题类型：0单选、1多选、2判断
 @property (strong,nonatomic)NSString *key;// 答案
+@property (strong,nonatomic)NSArray *options;// 选项集合
 
-- (id)initWithID:(int)ID chapterId:(int)chapterId bookId:(int)bookId no:(int)no title:(NSString *)title tip:(NSString *)tip type:(int)type key:(NSString *)key;
+- (id)initWithID:(int)ID chapterId:(int)chapterId bookId:(int)bookId no:(int)no title:(NSString *)title tip:(NSString *)tip type:(int)type key:(NSString *)key options:(NSArray *)options;
 + (id)buildFromDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)convertToDictionary;
 

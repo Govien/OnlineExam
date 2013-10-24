@@ -24,5 +24,6 @@
 - (void)getBookInfo:(int)bookId;
 // 根据习题ID和用户ID获取章节列表
 - (void)getChaptersOfBook:(int)bookId userId:(int)userId;
+- (void)getLaterQuestionsOfChapter:(int)chapterId userId:(int)userId pageIndex:(int)pageIndex pageSize:(int)pageSize;
 
 @end

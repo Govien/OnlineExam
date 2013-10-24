@@ -11,6 +11,7 @@
 #define DATA_GET_ORDERITEMS 2
 #define DATA_GET_BOOKINFO 3
 #define DATA_GET_CHAPTERS 4
+#define DATA_GET_LATER_QUESTIONS 5
 
 #define INFO_USERID @"INFO_USERID"
 #define INFO_USERNAME @"INFO_USERNAME"
@@ -19,8 +20,8 @@
 
 // 定义问题类型枚举，有单选／多选／判断
 typedef NS_ENUM(NSInteger, QuestionType) {
-    QuestionTypeRadio = 0,
-    QuestionTypeMulti = 1,
-    QuestionTypeJudge = 2
+    QuestionTypeJudge = 0,
+    QuestionTypeRadio = 1,
+    QuestionTypeMulti = 2
 };
 

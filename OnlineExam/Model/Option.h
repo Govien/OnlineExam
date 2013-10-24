@@ -12,7 +12,11 @@
 @property int ID;// 选项ID
 @property int questionId;// 问题ID
 @property (strong, nonatomic)NSString *text;// 选项文本
+@property int no;// 序号
 @property BOOL isKey;// 是否正确
-@property int questionType;// 问题类型
+
+- (id)initWithID:(int)ID questionId:(int)questionId text:(NSString *)text no:(int)no isKey:(BOOL)isKey;
++ (id)buildFromDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)convertToDictionary;
 
 @end
