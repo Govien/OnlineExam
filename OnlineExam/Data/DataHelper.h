@@ -24,6 +24,17 @@
 - (void)getBookInfo:(int)bookId;
 // 根据习题ID和用户ID获取章节列表
 - (void)getChaptersOfBook:(int)bookId userId:(int)userId;
-- (void)getLaterQuestionsOfChapter:(int)chapterId userId:(int)userId pageIndex:(int)pageIndex pageSize:(int)pageSize;
+// 获取上次做的题目编号
+- (void)getLastQuestionOrderOfChapter:(int)chapterId userId:(int)userId;
+// 获取上次做的之后的题目
+- (void)getLastQuestionsOfChapter:(int)chapterId userId:(int)userId pageIndex:(int)pageIndex pageSize:(int)pageSize;
+// 获取两个题号之间的题目
+- (void)getQuestionsBetweenOrder:(int)chapterId userId:(int)userId minOrder:(int)minOrder maxOrder:(int)maxOrder;
+// 获取某个题号之后的题目
+- (void)getQuestionsAfterOrder:(int)order chapterId:(int)chapterId userId:(int)userId pageSize:(int)pageSize;
+// 获取某个题号之前的题目
+- (void)getQuestionsBeforOrder:(int)order chapterId:(int)chapterId userId:(int)userId pageSize:(int)pageSize;
+// 提交答案
+- (void)commitAnswerOfQuestion:(int)questionId chapterId:(int)chapterId userId:(int)userId answer:(NSString *)answer;
 
 @end

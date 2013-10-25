@@ -12,13 +12,13 @@
 @protocol OptionDelegate;
 @interface OptionView: UIView
 
-- (OptionView *)initWithQuestion:(Question *)question chapter:(Chapter *)chapter optionDelegate:(id<OptionDelegate>)delegate;
+- (OptionView *)initWithQuestion:(Question *)question optionDelegate:(id<OptionDelegate>)delegate;
 
 @end
 
 // 单选按钮的选择事件委托
 @protocol OptionDelegate <NSObject>
 
-- (void)onOptionChecked:(Option *)option;
+- (void)onOptionChecked:(Option *)option answer:(NSString *)answer;
 
 @end

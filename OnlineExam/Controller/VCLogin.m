@@ -72,7 +72,7 @@
 }
 
 - (void)loading {
-    sleep(2);
+    sleep(1);
     [self performSelectorOnMainThread:@selector(endLoading) withObject:nil waitUntilDone:YES];
 }
 

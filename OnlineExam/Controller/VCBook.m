@@ -60,8 +60,6 @@
         case DATA_GET_CHAPTERS:
             [self initChapters:result.content];
             break;
-        default:
-            break;
     }
 }
 

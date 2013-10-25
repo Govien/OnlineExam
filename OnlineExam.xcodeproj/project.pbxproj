@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4141487A181684DC00830B78 /* line1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414879181684DC00830B78 /* line1.png */; };
 		4141487D18168AD900830B78 /* OptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4141487C18168AD900830B78 /* OptionView.m */; };
-		4141488018168AF000830B78 /* CheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 4141487F18168AF000830B78 /* CheckBox.m */; };
 		41414885181690AD00830B78 /* ic_multi_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414881181690AD00830B78 /* ic_multi_check.png */; };
 		41414886181690AD00830B78 /* ic_multi.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414882181690AD00830B78 /* ic_multi.png */; };
 		41414887181690AD00830B78 /* ic_radio_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414883181690AD00830B78 /* ic_radio_check.png */; };
@@ -115,8 +114,6 @@
 		41414879181684DC00830B78 /* line1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line1.png; sourceTree = "<group>"; };
 		4141487B18168AD900830B78 /* OptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionView.h; sourceTree = "<group>"; };
 		4141487C18168AD900830B78 /* OptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionView.m; sourceTree = "<group>"; };
-		4141487E18168AF000830B78 /* CheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
-		4141487F18168AF000830B78 /* CheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBox.m; sourceTree = "<group>"; };
 		41414881181690AD00830B78 /* ic_multi_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_multi_check.png; sourceTree = "<group>"; };
 		41414882181690AD00830B78 /* ic_multi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_multi.png; sourceTree = "<group>"; };
 		41414883181690AD00830B78 /* ic_radio_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_radio_check.png; sourceTree = "<group>"; };
@@ -452,12 +449,10 @@
 			children = (
 				41A67AAE18121A1400ABE38F /* BookView.h */,
 				41A67AAF18121A1400ABE38F /* BookView.m */,
-				4141487E18168AF000830B78 /* CheckBox.h */,
-				4141487F18168AF000830B78 /* CheckBox.m */,
-				41E6910718114084002FC35F /* MBProgressHUD */,
-				41A67AE01812263700ABE38F /* PDColoredProgressView */,
 				4141487B18168AD900830B78 /* OptionView.h */,
 				4141487C18168AD900830B78 /* OptionView.m */,
+				41E6910718114084002FC35F /* MBProgressHUD */,
+				41A67AE01812263700ABE38F /* PDColoredProgressView */,
 				41A67AB018121A1400ABE38F /* RecipeSegmentControl */,
 				41B526DE181114CA00BBD5A4 /* Toast */,
 			);
@@ -702,7 +697,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4141488018168AF000830B78 /* CheckBox.m in Sources */,
 				41FEF1031810329F00C39273 /* AFURLConnectionOperation.m in Sources */,
 				41A67AB618121A1400ABE38F /* RecipeSegmentControl.m in Sources */,
 				41ACF9441816792400EC29A6 /* VCQuestion.m in Sources */,

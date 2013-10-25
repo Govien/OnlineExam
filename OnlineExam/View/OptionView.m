@@ -7,80 +7,124 @@
 //
 
 #import "OptionView.h"
+#import <objc/runtime.h> 
 
 @interface OptionView () {
-    id<OptionDelegate> _delegate;
-    Chapter *_chapter;
+    id<OptionDelegate> _delegate;// 选项点击事件委托
+    NSMutableArray *_optionControls;// 选项控件集合
+    Question *_question;
 }
-
 @end
 
 @implementation OptionView
 
-- (OptionView *)initWithQuestion:(Question *)question chapter:(Chapter *)chapter optionDelegate:(id<OptionDelegate>)delegate {
+- (OptionView *)initWithQuestion:(Question *)question optionDelegate:(id<OptionDelegate>)delegate {
     self = [super init];
     _delegate = delegate;
-    _chapter = chapter;
+    _optionControls = [[NSMutableArray alloc] init];
+    _question = question;
     
-    NSArray *options = question.options;
-    
-    float y = 0;
-    for (int i = 0; i < options.count; i ++) {
-        Option *option = options[i];
-        [self addViewWithOption:option question:question yOffset:y];
-        y += 45;
-    }
-//    self.frame = CGRectMake(0, 0, 280, y);
-    return self;
-}
-
-- (void)addViewWithOption:(Option *)option question:(Question *)question yOffset:(float)yOffset {
-    UIImage *bg = [UIImage imageNamed:@"btn_gray"];
-    UIImage *bgHighLight = [UIImage imageNamed:@"btn_blue"];
+    // 选项背景图片，正常状态和高亮状态
+    UIImage *bgNormal = [UIImage imageNamed:@"btn_gray"];
+    UIImage *bgHighlight = [UIImage imageNamed:@"btn_blue"];
     CGFloat top = 10; // 顶端盖高度
     CGFloat bottom = 10 ; // 底端盖高度
     CGFloat left = 30; // 左端盖宽度
     CGFloat right = 30; // 右端盖宽度
     UIEdgeInsets insets = UIEdgeInsetsMake(top, left, bottom, right);
     // 伸缩后重新赋值
-    bg = [bg resizableImageWithCapInsets:insets];
-    bgHighLight = [bgHighLight resizableImageWithCapInsets:insets];
-    // 选项背景图片
-    UIImageView *ivBg = [[UIImageView alloc] initWithImage:bg highlightedImage:bgHighLight];
-    ivBg.frame = CGRectMake(0, yOffset, 280, 40);
-    [self addSubview:ivBg];
+    bgNormal = [bgNormal resizableImageWithCapInsets:insets];
+    bgHighlight = [bgHighlight resizableImageWithCapInsets:insets];
     
-    UIImage *nomarlImage = nil, *highlightedImage = nil;
+    // 选项左边ICON，正常状态和高亮状态
+    UIImage *icNormal, *icHighlight;
     // 根据问题类型加载不同的图片
-    if (question.type == QuestionTypeRadio || question.type == QuestionTypeJudge) {
-        nomarlImage = [UIImage imageNamed:@"ic_radio"];
-        highlightedImage= [UIImage imageNamed:@"ic_radio_check"];
-    } else if (question.type == QuestionTypeMulti) {
-        nomarlImage = [UIImage imageNamed:@"ic_multi"];
-        highlightedImage= [UIImage imageNamed:@"ic_multi_check"];
+    if (_question.type == QuestionTypeRadio || _question.type == QuestionTypeJudge) {
+        icNormal = [UIImage imageNamed:@"ic_radio"];
+        icHighlight= [UIImage imageNamed:@"ic_radio_check"];
+    } else if (_question.type == QuestionTypeMulti) {
+        icNormal = [UIImage imageNamed:@"ic_multi"];
+        icHighlight= [UIImage imageNamed:@"ic_multi_check"];
     }
+    NSArray *imgArray = [NSArray arrayWithObjects:bgNormal, bgHighlight, icNormal, icHighlight, nil];
     
-    // 选项左边图片
-    UIImageView *ivHead = [[UIImageView alloc] initWithImage:nomarlImage highlightedImage:highlightedImage];
-    ivHead.frame = CGRectMake(0, yOffset + 5, nomarlImage.size.width, nomarlImage.size.height);
-    [self addSubview:ivHead];
+    NSArray *options = question.options;
+    float yOffset = 0;// 选项控件Y方向偏移
+    for (int i = 0; i < options.count; i ++) {
+        Option *option = options[i];
+        [self addViewWithOption:option imgArray:imgArray yOffset:yOffset];
+        yOffset += 45;
+    }
+    self.frame = CGRectMake(0, 0, 280, yOffset);
+    return self;
+}
+
+- (void)addViewWithOption:(Option *)option imgArray:(NSArray *)imgArray yOffset:(float)yOffset {
+    UIControl *cOption = [[UIControl alloc] initWithFrame:CGRectMake(0, yOffset, 280, 40)];
+    // 选项背景图片控件
+    UIImageView *ivBg = [[UIImageView alloc] initWithImage:imgArray[0] highlightedImage:imgArray[1]];
+    ivBg.frame = CGRectMake(0, 0, 280, 40);
+    ivBg.tag = 1;
+    [cOption addSubview:ivBg];
+    
+    // 选项左边ICON图片控件
+    UIImageView *ivHead = [[UIImageView alloc] initWithImage:imgArray[2] highlightedImage:imgArray[3]];
+    ivHead.frame = CGRectMake(0, 5, 40, 30);
+    ivHead.tag = 2;
+    [cOption addSubview:ivHead];
     
     // 选项的文本
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(50, yOffset + 5, 225, 28)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(50, 5, 225, 28)];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor whiteColor];
     label.text = option.text;
-    [self addSubview:label];
+    [cOption addSubview:label];
     
-    // 添加手势监听点击事件
-//    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onChecked)];
-//    [self addGestureRecognizer:tapGestureRecognizer];
+    // 添加选项点击事件监听
+    if (_question.type == QuestionTypeRadio || _question.type == QuestionTypeJudge) {
+        [cOption addTarget:self action:@selector(onRadioChecked:) forControlEvents:UIControlEventTouchUpInside];
+    } else if (_question.type == QuestionTypeMulti) {
+        [cOption addTarget:self action:@selector(onMultiChecked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    [self addSubview:cOption];
+    objc_setAssociatedObject(cOption, &"option", option, OBJC_ASSOCIATION_RETAIN);
+    [_optionControls addObject:cOption];
 }
 
-- (void)onChecked {
-//    _ivBg.highlighted = YES;
-//    _ivHead.highlighted = YES;
-//    [_delegate onChecked:_option];
+// 单选事件监听
+- (void)onRadioChecked:(UIControl *)cOption {
+    for (UIControl *control in _optionControls) {
+        UIImageView *ivBg = (UIImageView *)[control viewWithTag:1];
+        UIImageView *ivHead = (UIImageView *)[control viewWithTag:2];
+        if (control == cOption && !ivBg.highlighted) {
+            ivBg.highlighted = YES;
+            ivHead.highlighted = YES;
+            Option *option = objc_getAssociatedObject(control, &"option");
+            [_delegate onOptionChecked:option answer:[NSString stringWithFormat:@"%d", option.no]];
+        } else if (ivBg.highlighted){
+            ivBg.highlighted = NO;
+            ivHead.highlighted = NO;
+        }
+    }
+}
+
+// 多选事件监听
+- (void)onMultiChecked:(UIControl *)cOption {
+    NSMutableString *answer = [[NSMutableString alloc] init];
+    Option *option = objc_getAssociatedObject(cOption, &"option");
+    for (UIControl *control in _optionControls) {
+        UIImageView *ivBg = (UIImageView *)[control viewWithTag:1];
+        UIImageView *ivHead = (UIImageView *)[control viewWithTag:2];
+        if (control == cOption) {
+            ivBg.highlighted = ivBg.highlighted ? NO : YES;
+            ivHead.highlighted = ivHead.highlighted ? NO : YES;
+        }
+        if (ivBg.highlighted) {
+            Option *temp = objc_getAssociatedObject(control, &"option");
+            [answer appendFormat:@"%d", temp.no];
+        }
+    }
+    [_delegate onOptionChecked:option answer:answer];
 }
 
 @end
