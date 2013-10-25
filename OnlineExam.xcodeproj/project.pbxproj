@@ -57,6 +57,7 @@
 		41ACF94818167BFF00EC29A6 /* btn_answer.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF94518167BFF00EC29A6 /* btn_answer.png */; };
 		41ACF94918167BFF00EC29A6 /* btn_next.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF94618167BFF00EC29A6 /* btn_next.png */; };
 		41ACF94A18167BFF00EC29A6 /* btn_pre.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF94718167BFF00EC29A6 /* btn_pre.png */; };
+		41AF8CB0181A6218009DE7D5 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AF8CAF181A6218009DE7D5 /* CMPopTipView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		41B211CA180E96E0005240F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211C9180E96E0005240F9 /* Foundation.framework */; };
 		41B211CC180E96E0005240F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211CB180E96E0005240F9 /* CoreGraphics.framework */; };
 		41B211CE180E96E0005240F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211CD180E96E0005240F9 /* UIKit.framework */; };
@@ -173,6 +174,8 @@
 		41ACF94518167BFF00EC29A6 /* btn_answer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_answer.png; sourceTree = "<group>"; };
 		41ACF94618167BFF00EC29A6 /* btn_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_next.png; sourceTree = "<group>"; };
 		41ACF94718167BFF00EC29A6 /* btn_pre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_pre.png; sourceTree = "<group>"; };
+		41AF8CAE181A6218009DE7D5 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
+		41AF8CAF181A6218009DE7D5 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
 		41B211C6180E96E0005240F9 /* OnlineExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B211C9180E96E0005240F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		41B211CB180E96E0005240F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -298,6 +301,15 @@
 				41A67AE31812263700ABE38F /* PDColoredProgressView.m */,
 			);
 			path = PDColoredProgressView;
+			sourceTree = "<group>";
+		};
+		41AF8CAD181A6218009DE7D5 /* CMPopTipView */ = {
+			isa = PBXGroup;
+			children = (
+				41AF8CAE181A6218009DE7D5 /* CMPopTipView.h */,
+				41AF8CAF181A6218009DE7D5 /* CMPopTipView.m */,
+			);
+			path = CMPopTipView;
 			sourceTree = "<group>";
 		};
 		41B211BD180E96DF005240F9 = {
@@ -451,6 +463,7 @@
 				41A67AAF18121A1400ABE38F /* BookView.m */,
 				4141487B18168AD900830B78 /* OptionView.h */,
 				4141487C18168AD900830B78 /* OptionView.m */,
+				41AF8CAD181A6218009DE7D5 /* CMPopTipView */,
 				41E6910718114084002FC35F /* MBProgressHUD */,
 				41A67AE01812263700ABE38F /* PDColoredProgressView */,
 				41A67AB018121A1400ABE38F /* RecipeSegmentControl */,
@@ -730,6 +743,7 @@
 				41FEF0FD1810329F00C39273 /* AFHTTPClient.m in Sources */,
 				41A67AE51812263700ABE38F /* PDColoredProgressView.m in Sources */,
 				41FEF10D181035A000C39273 /* JSONKit.m in Sources */,
+				41AF8CB0181A6218009DE7D5 /* CMPopTipView.m in Sources */,
 				41ACF93E1816684E00EC29A6 /* Question.m in Sources */,
 				41FEF1081810329F00C39273 /* OrderItem.m in Sources */,
 				41FEF1021810329F00C39273 /* AFPropertyListRequestOperation.m in Sources */,

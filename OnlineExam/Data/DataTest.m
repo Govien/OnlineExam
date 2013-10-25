@@ -95,7 +95,7 @@
     Option *option3 = [[Option alloc] initWithID:1 questionId:1 text:@"资金运用" no:4 isKey:YES];
     NSArray *options = [NSArray arrayWithObjects:option0, option1, option2, option3, nil];
     Question *question0 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:167 order:167 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:2 key:@"A,B,C" options:options];
-    Question *question1 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:168 order:168 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:0 key:@"A,B,C" options:options];
+    Question *question1 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:168 order:168 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"弹出的视图会自动定位在相应的按钮旁边，并且有小箭头指向这个按钮。可以在弹出视图上加文字、控件或者图片。还可以设置视图弹出动画。" type:0 key:@"A,B,C" options:options];
     
     Question *question2 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:169 order:169 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:2 key:@"A,B,C" options:options];
     Question *question3 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:170 order:170 title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:2 key:@"A,B,C" options:options];
@@ -111,7 +111,7 @@
     Option *option3 = [[Option alloc] initWithID:1 questionId:1 text:@"资金运用" no:4 isKey:YES];
     NSArray *options = [NSArray arrayWithObjects:option0, option1, option2, option3, nil];
     Question *question0 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:167 order:(order+1) title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:2 key:@"A,B,C" options:options];
-    Question *question1 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:168 order:(order+2) title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:0 key:@"A,B,C" options:options];
+    Question *question1 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:168 order:(order+2) title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"弹出的视图会自动定位在相应的按钮旁边，并且有小箭头指向这个按钮。可以在弹出视图上加文字、控件或者图片。还可以设置视图弹出动画。" type:0 key:@"A,B,C" options:options];
     
     Question *question2 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:169 order:(order+3) title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:2 key:@"A,B,C" options:options];
     Question *question3 = [[Question alloc] initWithID:1 chapterId:1 bookId:1 no:170 order:(order+4) title:@"会计对象就是能用货币表现的各种经济活动，具体包括的内容有（）" tip:@"会计的对象就是企业的资金运动，具体包括：资金投入、资金运用和资金退出" type:2 key:@"A,B,C" options:options];

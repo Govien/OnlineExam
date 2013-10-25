@@ -9,6 +9,7 @@
 #import "VCQuestion.h"
 #import "OptionView.h"
 #import "DataHelper.h"
+#import "CMPopTipView.h"
 
 @interface VCQuestion ()<Handler, OptionDelegate> {
     DataHelper *_dataHelper;
@@ -17,6 +18,7 @@
     OptionView *_optionView;
     NSString *_answer;
     Question *_currentQuestion;
+    CMPopTipView *_popTipView;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *lblNo;
@@ -100,19 +102,46 @@ static const int _pageSize = 10;
 
 // 提交答案
 - (void)commitAnswer {
+    [self closeTip];
     if ([StringUtil isNotTrimBlank:_answer]) {
         [_dataHelper commitAnswerOfQuestion:_currentQuestion.ID chapterId:_chapter.ID userId:_userId answer:_answer];
         _answer = nil;
     }
 }
 
-- (void)fillDictionaryWithQuestions:(NSArray *)questions {
-    if (!_questionDics) {
-        _questionDics = [[NSMutableDictionary alloc] init];
-    }
-    for (NSDictionary *questionDic in questions) {
-        Question *question = [Question buildFromDictionary:questionDic];
-        [_questionDics setObject:question forKey:[NSNumber numberWithInt:question.order]];
+// 答案解析，弹出气泡提示
+- (void)showTip:(UIView *)view {
+    UIView *vTip = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 55)];
+    UIImageView *ivClose = [[UIImageView alloc] initWithFrame:CGRectMake(262, 0, 18, 18)];
+    UILabel *lblAnswer = [[UILabel alloc] initWithFrame:CGRectMake(10, 22, 260, 20)];
+    UIImageView *ivLine = [[UIImageView alloc] initWithFrame:CGRectMake(5, 48, 270, 1)];
+    UITextView *tvTip = [[UITextView alloc] initWithFrame:CGRectMake(5, 55, 270, 0)];
+    vTip.backgroundColor = [UIColor clearColor];
+    tvTip.backgroundColor = [UIColor clearColor];
+    ivClose.image = [UIImage imageNamed:@"ic_close"];
+    ivLine.image = [UIImage imageNamed:@"line1"];
+    tvTip.editable = NO;
+    
+    [vTip addSubview:ivClose];
+    [vTip addSubview:lblAnswer];
+    [vTip addSubview:ivLine];
+    [vTip addSubview:tvTip];
+    
+    lblAnswer.text = [NSString stringWithFormat:@"正确答案：%@", _currentQuestion.key];
+    tvTip.text = _currentQuestion.tip;
+    CGSize tipContent = tvTip.contentSize;
+    tvTip.frame = CGRectMake(tvTip.frame.origin.x, tvTip.frame.origin.y, tvTip.frame.size.width, tipContent.height);
+    vTip.frame = CGRectMake(vTip.frame.origin.x, vTip.frame.origin.y, vTip.frame.size.width, vTip.frame.size.height + tipContent.height);
+    _popTipView = [[CMPopTipView alloc] initWithCustomView:vTip];
+    _popTipView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
+    [_popTipView presentPointingAtView:view inView:self.view animated:YES];
+}
+
+// 关闭答案解析
+- (void)closeTip {
+    if (!_popTipView.hidden) {
+        [_popTipView dismissAnimated:YES];
+        _popTipView = nil;
     }
 }
 
@@ -145,6 +174,16 @@ static const int _pageSize = 10;
     }
 }
 
+- (void)fillDictionaryWithQuestions:(NSArray *)questions {
+    if (!_questionDics) {
+        _questionDics = [[NSMutableDictionary alloc] init];
+    }
+    for (NSDictionary *questionDic in questions) {
+        Question *question = [Question buildFromDictionary:questionDic];
+        [_questionDics setObject:question forKey:[NSNumber numberWithInt:question.order]];
+    }
+}
+
 - (void)onOptionChecked:(Option *)option answer:(NSString *)answer {
     _answer = answer;
 }
@@ -155,6 +194,7 @@ static const int _pageSize = 10;
             [self preQuestion];
             break;
         case 2:
+            [self showTip:sender];
             break;
         case 3:
             [self nextQuestion];

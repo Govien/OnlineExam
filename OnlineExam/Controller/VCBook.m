@@ -59,6 +59,7 @@
     switch (message.what) {
         case DATA_GET_CHAPTERS:
             [self initChapters:result.content];
+            
             break;
     }
 }
