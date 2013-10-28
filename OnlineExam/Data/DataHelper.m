@@ -36,7 +36,7 @@
 }
 
 - (void)getOrderItemsOfUser:(int)userId {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getOrderItems", @"action_path", userId, @"userId", nil];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getOrderItems", @"action_path", [NSNumber numberWithInt:userId], @"userId", nil];
     [HttpUtil doPostWithBaseUrl:URL_SERVER params:params callback:^(BOOL isSuccessed, Result *result) {
         [self callback:DATA_GET_ORDERITEMS result:result];
     }];

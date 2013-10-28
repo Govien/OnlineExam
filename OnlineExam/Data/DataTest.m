@@ -25,7 +25,7 @@
     } else if ([url isEqualToString:@"regist"]) {
         
     } else if ([url isEqualToString:@"login"]) {
-        
+        [dictionary setObject:[self login] forKey:@"content"];
     } else if ([url isEqualToString:@"getBookInfo"]) {
         [dictionary setObject:[self getBookInfo] forKey:@"content"];
     } else if ([url isEqualToString:@"getChapters"]) {
@@ -45,6 +45,10 @@
     }
     NSString *str = [dictionary JSONString];
     return str;
+}
+
++ (NSDictionary *)login {
+    return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:100], @"ID", @"test2010", @"username", @"123456", @"password", @"15270891754", @"mobile", @"gxl3999@163.com", @"email", @"男", @"sex", nil];
 }
 
 + (NSDictionary *)getOrderItemsOfUser:(NSString *)username password:(NSString *)password {

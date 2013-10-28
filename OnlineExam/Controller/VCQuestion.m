@@ -111,6 +111,9 @@ static const int _pageSize = 10;
 
 // 答案解析，弹出气泡提示
 - (void)showTip:(UIView *)view {
+    if (_popTipView) {
+        return;
+    }
     UIView *vTip = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 55)];
     UIImageView *ivClose = [[UIImageView alloc] initWithFrame:CGRectMake(262, 0, 18, 18)];
     UILabel *lblAnswer = [[UILabel alloc] initWithFrame:CGRectMake(10, 22, 260, 20)];

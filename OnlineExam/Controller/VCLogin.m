@@ -11,7 +11,6 @@
 #import "VCMain.h"
 #import "UserInfo.h"
 
-
 @interface VCLogin ()<Handler> {
     UITextField *_tfEditing;
     DataHelper *_dataHelper;

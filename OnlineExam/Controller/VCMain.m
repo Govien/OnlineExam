@@ -11,6 +11,7 @@
 #import "RecipeSegmentControl.h"
 #import "DataHelper.h"
 #import "Book.h"
+#import "MBProgressHUD.h"
 
 @interface VCMain ()<Handler, BookDelegate>
 {
@@ -61,6 +62,10 @@
     }
     [self.view addSubview:[[RecipeSegmentControl alloc] init]];
     [self initBooks:_orderItems];
+    
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.dimBackground = YES;
+//    hud.labelText = @"progress标题";
 }
 
 // 初始化已购买的习题

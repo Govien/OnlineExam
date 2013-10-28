@@ -24,8 +24,8 @@
 
 // 定义问题类型枚举，有单选／多选／判断
 typedef NS_ENUM(NSInteger, QuestionType) {
-    QuestionTypeJudge = 0,
-    QuestionTypeRadio = 1,
-    QuestionTypeMulti = 2
+    QuestionTypeJudge = 1,
+    QuestionTypeRadio = 2,
+    QuestionTypeMulti = 3
 };
 
