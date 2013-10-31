@@ -16,6 +16,7 @@
 @property int rightCount;// 对题总数
 @property int errorCount;// 错题总数
 @property int no;// 编号或需要，用来表示第几章
+@property (strong,nonatomic)NSArray *questionTypes;
 
 - (id)initWithID:(int)ID bookId:(int)bookId name:(NSString *)name totalCount:(int)totalCount doneCount:(int)doneCount rightCount:(int)rightCount errorCount:(int)errorCount no:(int)no;
 + (id)buildFromDictionary:(NSDictionary *)dictionary;

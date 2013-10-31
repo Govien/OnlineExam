@@ -47,6 +47,27 @@
     return question;
 }
 
++ (id)build:(NSDictionary *)dictionary {
+    Question *question = [[Question alloc] init];
+    question.ID = [[dictionary objectForKey:@"question_id"] intValue];
+    question.key = [dictionary objectForKey:@"answer"];
+    question.order = [[dictionary objectForKey:@"no"] intValue];
+    question.type = [[dictionary objectForKey:@"questiontype_id"] intValue];
+    question.typeId = [[dictionary objectForKey:@"tixing_id"] intValue];
+    
+    NSDictionary *subQuestion = [dictionary objectForKey:@"subquestion"][0];
+    question.title = [subQuestion objectForKey:@"question_text"];
+    question.tipKey = [subQuestion objectForKey:@"answer"];
+    question.tip = [subQuestion objectForKey:@"demo"];
+    
+    NSMutableArray *mutableOptions = [[NSMutableArray alloc] init];
+    for (NSDictionary *item in [subQuestion objectForKey:@"options"]) {
+        [mutableOptions addObject:[Option build:item]];
+    }
+    question.options = mutableOptions;
+    return question;
+}
+
 - (NSDictionary *)convertToDictionary {
     NSMutableArray *optionDic = [[NSMutableArray alloc] init];
     for (Option *option in _options) {

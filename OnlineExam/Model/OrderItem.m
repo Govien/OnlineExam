@@ -10,14 +10,14 @@
 
 @implementation OrderItem
 
-- (id)init:(int)ID courseId:(int)courseId bookId:(int)bookId productName:(NSString *)productName provinceName:(NSString *)provinceName buyTime:(NSString *)buyTime degree:(float)degree {
+- (id)init:(int)ID courseId:(int)courseId bookId:(int)bookId productName:(NSString *)productName provinceId:(int)provinceId buyTime:(NSString *)buyTime degree:(float)degree {
     self = [super init];
     if (self) {
         _ID = ID;
         _courseId = courseId;
         _bookId = bookId;
         _productName = productName;
-        _provinceName = provinceName;
+        _provinceId = provinceId;
         _buyTime = buyTime;
         _degree = degree;
     }
@@ -30,14 +30,20 @@
     item.bookId = [[dictionary objectForKey:@"bookId"] intValue];
     item.courseId = [[dictionary objectForKey:@"courseId"] intValue];
     item.productName = [dictionary objectForKey:@"productName"];
-    item.provinceName = [dictionary objectForKey:@"provinceName"];
+    item.provinceId = [[dictionary objectForKey:@"provinceid"] intValue];
+    int proviceId = [[dictionary objectForKey:@"provinceid"] intValue];
+    if (proviceId) {
+        item.provinceId = proviceId;
+    } else {
+        item.provinceId = [[dictionary objectForKey:@"provinceId"] intValue];
+    }
     item.buyTime = [dictionary objectForKey:@"buyTime"];
     item.degree = [[dictionary objectForKey:@"degree"] floatValue];
     return item;
 }
 
 - (NSDictionary *)convertToDictionary {
-    return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:self.ID], @"ID", [NSNumber numberWithInt:self.courseId], @"courseId", [NSNumber numberWithInt:self.bookId], @"bookId", self.productName, @"productName", self.provinceName, @"provinceName", self.buyTime, @"buyTime", [NSNumber numberWithFloat:self.degree], @"degree", nil];
+    return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:self.ID], @"ID", [NSNumber numberWithInt:self.courseId], @"courseId", [NSNumber numberWithInt:self.bookId], @"bookId", self.productName, @"productName", [NSNumber numberWithInt:self.provinceId], @"provinceId", self.buyTime, @"buyTime", [NSNumber numberWithFloat:self.degree], @"degree", nil];
 }
 
 @end

@@ -121,10 +121,10 @@
         }
         if (ivBg.highlighted) {
             Option *temp = objc_getAssociatedObject(control, &"option");
-            [answer appendFormat:@"%d", temp.no];
+            [answer appendFormat:@"%d,", temp.no];
         }
     }
-    [_delegate onOptionChecked:option answer:answer];
+    [_delegate onOptionChecked:option answer:[answer substringToIndex:answer.length - 2]];
 }
 
 @end

@@ -10,10 +10,12 @@
 #import "DataHelper.h"
 #import "Chapter.h"
 #import "VCQuestion.h"
+#import "QuestionType.h"
+#import "AppUtil.h"
 
 @interface VCBook ()<Handler> {
     DataHelper *_dataHelper;
-    NSMutableArray *allChapters, *errorChapters;
+    NSMutableArray *_allChapters, *_errorChapters, *_questionTypes;
     BOOL _isErrorShow;
 }
 
@@ -44,7 +46,6 @@
     _vBookInfo.layer.borderWidth = 1.0;
     _vBookInfo.layer.borderColor = [[UIColor whiteColor] CGColor];
     
-
     _lblPurchase.layer.cornerRadius = 10.0;
     
     _lblTitle.text = _book.courseName;
@@ -58,37 +59,46 @@
     Result *result = message.obj;
     switch (message.what) {
         case DATA_GET_CHAPTERS:
-            [self initChapters:result.content];
-            
+            [self handleChapterResult:result];
             break;
     }
 }
 
-- (void)initChapters:(NSArray *)chapterArray {
-    int errorNum = 0;
-    if (!allChapters) {
-        allChapters = [[NSMutableArray alloc] init];
-    }
-    if (!errorChapters) {
-        errorChapters = [[NSMutableArray alloc] init];
-    }
-    for (NSDictionary *dictionary in chapterArray) {
-        Chapter *chapter = [Chapter buildFromDictionary:dictionary];
-        [allChapters addObject:chapter];
-        if (chapter.errorCount > 0) {
-            errorNum += chapter.errorCount;
-            [errorChapters addObject:chapter];
+- (void)handleChapterResult:(Result *)result {
+    if (result.stateCode == STATE_OFFLINE) {
+        [AppUtil offline:self];
+    } else if (result.stateCode == STATE_SUCCESS) {
+        int errorNum = 0;
+        if (!_allChapters) {
+            _allChapters = [[NSMutableArray alloc] init];
         }
+        if (!_errorChapters) {
+            _errorChapters = [[NSMutableArray alloc] init];
+        }
+        if (!_questionTypes) {
+            _questionTypes = [[NSMutableArray alloc] init];
+        }
+        for (NSDictionary *dictionary in [result.content objectForKey:@"tixing_arr"]) {
+            [_questionTypes addObject:[QuestionType build:dictionary]];
+        }
+        for (NSDictionary *dictionary in [result.content objectForKey:@"Chapter"]) {
+            Chapter *chapter = [Chapter buildFromDictionary:dictionary];
+            [_allChapters addObject:chapter];
+            if (chapter.errorCount > 0) {
+                errorNum += chapter.errorCount;
+                [_errorChapters addObject:chapter];
+            }
+        }
+        [_scContentChoose setTitle:[NSString stringWithFormat:@"错题重做(%d)", errorNum] forSegmentAtIndex:1];
+        [_tvChapter reloadData];
     }
-    [_scContentChoose setTitle:[NSString stringWithFormat:@"错题重做(%d)", errorNum] forSegmentAtIndex:1];
-    [_tvChapter reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_isErrorShow) {
-        return errorChapters.count;
+        return _errorChapters.count;
     }
-    return allChapters.count;
+    return _allChapters.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -97,11 +107,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
+    Chapter *chapter = nil;
     if (_isErrorShow) {
-        [self performSegueWithIdentifier:@"question" sender:errorChapters[row]];
+        chapter = _errorChapters[row];
     } else {
-        [self performSegueWithIdentifier:@"question" sender:allChapters[row]];
+        chapter = _allChapters[row];
     }
+    chapter.questionTypes = _questionTypes;
+    [self performSegueWithIdentifier:@"question" sender:chapter];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,16 +123,16 @@
     UILabel *title = (UILabel *)[cell viewWithTag:1];
     UILabel *detail = (UILabel *)[cell viewWithTag:2];
     if (!_isErrorShow) {
-        Chapter *chapter = allChapters[row];
+        Chapter *chapter = _allChapters[row];
         title.text = chapter.name;
         if (chapter.doneCount > 0) {
             float rightRate = (chapter.rightCount / (float)chapter.doneCount) * 100;
             detail.text = [NSString stringWithFormat:@"%d题  正确率 %0.2f%%", chapter.totalCount, rightRate];
         } else {
-            detail.text = [NSString stringWithFormat:@"%d题", chapter.totalCount];
+            detail.text = [NSString stringWithFormat:@"共%d道题", chapter.totalCount];
         }
     } else {
-        Chapter *chapter = errorChapters[row];
+        Chapter *chapter = _errorChapters[row];
         title.text = chapter.name;
         detail.text = [NSString stringWithFormat:@"共%d道题  错题%d道", chapter.totalCount, chapter.errorCount];
     }

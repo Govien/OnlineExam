@@ -138,7 +138,7 @@
 // 处理习题点击事件
 - (void)onBookClicked:(BookView *)bookView {
     [self.view makeToastActivity];
-    [_dataHelper getBookInfo:bookView.orderItem.bookId];
+    [_dataHelper getBookInfo:bookView.orderItem.bookId provinceId:bookView.orderItem.provinceId];
 }
 
 // 处理分段控件选择改变事件

@@ -10,11 +10,13 @@
 #import "DataHelper.h"
 #import "VCMain.h"
 #import "UserInfo.h"
+#import "BlockAlertView.h"
 
 @interface VCLogin ()<Handler> {
     UITextField *_tfEditing;
     DataHelper *_dataHelper;
     NSUserDefaults *_userDefaults;
+    NSString *_username, *_password;
 }
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *layoutInit;// 初始化布局视图
@@ -32,6 +34,8 @@
 @end
 
 @implementation VCLogin
+
+@synthesize offline = _offline;
 
 - (void)viewDidLoad
 {
@@ -61,12 +65,18 @@
     
     // 获取自动登录状态，登录服务器
     _userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL autoLogin = [_userDefaults boolForKey:INFO_AUTO_LOGIN];
-    if (autoLogin) {
-        self.layoutInit.hidden = YES;
-        self.layoutAuto.hidden = NO;
-        [self.aivLoading startAnimating];
-        [self performSelectorInBackground:@selector(loading) withObject:nil];
+    _username = [_userDefaults objectForKey:INFO_USERNAME];
+    self.tfLoginName.text = _username;
+    if (_offline) {
+        [self toggleLayout:self.layoutLogin turnOn:YES];
+    } else {
+        BOOL autoLogin = [_userDefaults boolForKey:INFO_AUTO_LOGIN];
+        if (autoLogin) {
+            self.layoutInit.hidden = YES;
+            self.layoutAuto.hidden = NO;
+            [self.aivLoading startAnimating];
+            [self performSelectorInBackground:@selector(loading) withObject:nil];
+        }
     }
 }
 
@@ -76,7 +86,9 @@
 }
 
 - (void)endLoading {
-    [_dataHelper login:[_userDefaults stringForKey:INFO_USERNAME] password:[_userDefaults stringForKey:INFO_PASSWORD]];
+    NSString *username = [_userDefaults stringForKey:INFO_USERNAME];
+    _password = [_userDefaults stringForKey:INFO_PASSWORD];
+    [_dataHelper login:username password:_password];
 }
 
 - (IBAction)onButtonClicked:(UIButton *)sender {
@@ -128,18 +140,20 @@
 // 检查输入并执行登录
 - (void)performLogin {
     NSString *username = self.tfLoginName.text;
-    NSString *password = self.tfLoginPassword.text;
+    _password = self.tfLoginPassword.text;
     NSString *message;
     if (![StringUtil isLengthIn:username min:5 max:16]) {
         message = @"用户名不能为空，长度5~16！";
-    } else if(![StringUtil isLengthIn:password min:6 max:16]) {
+    } else if(![StringUtil isLengthIn:_password min:6 max:16]) {
         message = @"密码不能为空，长度6~16！";
     }
     if (message) {
-        [[[UIAlertView alloc] initWithTitle:@"警告" message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"警告" message:message];
+        [alert setDestructiveButtonWithTitle:@"         确    定         " block:nil];
+        [alert show];
     } else {
         [self.view makeToastActivity];
-        [_dataHelper login:username password:password];
+        [_dataHelper login:username password:_password];
     }
 }
 
@@ -160,9 +174,7 @@
             [self handleLoginResult:result];
             break;
         case DATA_GET_ORDERITEMS:
-            if (result.stateCode == STATE_SUCCESS) {
-                [self performSegueWithIdentifier:@"main" sender:result.content];
-            }
+            [self performSegueWithIdentifier:@"main" sender:result.content];
             break;
         default:
             break;
@@ -176,6 +188,7 @@
         [_userDefaults setBool:NO forKey:INFO_AUTO_LOGIN];
         if ([self.aivLoading isAnimating]) {
             [self.aivLoading stopAnimating];
+            self.layoutAuto.hidden = YES;
             [self toggleLayout:self.layoutLogin turnOn:YES];
         }
     } else if (result.stateCode == STATE_SUCCESS) {
@@ -184,7 +197,10 @@
         UserInfo *userInfo = [UserInfo buildFromDictionary:result.content];
         [_userDefaults setInteger:userInfo.ID forKey:INFO_USERID];
         [_userDefaults setObject:userInfo.username forKey:INFO_USERNAME];
-        [_userDefaults setObject:userInfo.password forKey:INFO_PASSWORD];
+        [_userDefaults setObject:_password forKey:INFO_PASSWORD];
+        [_userDefaults setObject:userInfo.realName forKey:INFO_REALNAME];
+        [_userDefaults setObject:userInfo.loginDate forKey:INFO_LOGIN_DATE];
+        [_userDefaults setObject:userInfo.loginCity forKey:INFO_LOGIN_CITY];
         if (_swAutoLogin.on) {
             [_userDefaults setBool:YES forKey:INFO_AUTO_LOGIN];
         } else {

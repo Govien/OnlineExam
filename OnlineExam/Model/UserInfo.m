@@ -26,7 +26,9 @@
     userInfo.password = [dictionary objectForKey:@"password"];
     userInfo.email = [dictionary objectForKey:@"email"];
     userInfo.mobile = [dictionary objectForKey:@"mobile"];
-    userInfo.sex = [dictionary objectForKey:@"sex"];
+    userInfo.realName = [dictionary objectForKey:@"realName"];
+    userInfo.loginDate = [dictionary objectForKey:@"loginDate"];
+    userInfo.loginCity = [dictionary objectForKey:@"loginCity"];
     return userInfo;
 }
 

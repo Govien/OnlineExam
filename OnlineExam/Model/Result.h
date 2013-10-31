@@ -7,6 +7,7 @@
 //
 #define STATE_FAIL 0
 #define STATE_SUCCESS 1
+#define STATE_OFFLINE 2
 
 @interface Result : NSObject
 

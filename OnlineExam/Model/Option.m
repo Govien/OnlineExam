@@ -32,6 +32,18 @@
     return option;
 }
 
++ (id)build:(NSDictionary *)dictionary {
+    Option *option = [[Option alloc] init];
+    option.text = [dictionary objectForKey:@"answer_text"];
+    option.no = [[dictionary objectForKey:@"orderid"] intValue];
+//    option.isKey = [[dictionary objectForKey:@"is_true_answer"] boolValue];
+    id val = [dictionary objectForKey:@"is_true_answer"];
+    if (val != [NSNull null]) {
+        option.isKey = [val boolValue];
+    }
+    return option;
+}
+
 - (NSDictionary *)convertToDictionary {
     return [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:self.ID], @"ID", [NSNumber numberWithInt:self.questionId], @"questionId", self.text, @"text", [NSNumber numberWithInt:self.no], @"no",[NSNumber numberWithBool:self.isKey], @"isKey", nil];
 }

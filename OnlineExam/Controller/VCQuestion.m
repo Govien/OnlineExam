@@ -10,15 +10,18 @@
 #import "OptionView.h"
 #import "DataHelper.h"
 #import "CMPopTipView.h"
+#import "QuestionType.h"
+#import "AppUtil.h"
 
 @interface VCQuestion ()<Handler, OptionDelegate> {
     DataHelper *_dataHelper;
-    int _userId, _lastOrder, _questionCount;
-    NSMutableDictionary *_questionDics;
+    int _userId, _lastOrder, _questionCount, _questionTypeCode;
+    NSMutableDictionary *_questionDics, *_qustionTypes;
     OptionView *_optionView;
     NSString *_answer;
     Question *_currentQuestion;
     CMPopTipView *_popTipView;
+    BOOL _isNextQuestion;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *lblNo;
@@ -42,7 +45,12 @@ static const int _pageSize = 10;
     _vContent.backgroundColor = [UIColor clearColor];
     _userId = [[NSUserDefaults standardUserDefaults] integerForKey:INFO_USERID];
     [self.view makeToastActivity];
-    [_dataHelper getLastQuestionOrderOfChapter:_chapter.ID userId:_userId];
+    [_dataHelper getLastQuestionOrderOfChapter:_chapter.ID userId:_userId questionType:_questionTypeCode];
+    if (!_qustionTypes) {
+        for (QuestionType *type in _chapter.questionTypes) {
+            [_qustionTypes setObject:type forKey:[NSNumber numberWithInt:type.typeCode]];
+        }
+    }
 }
 
 // 显示问题视图
@@ -69,16 +77,21 @@ static const int _pageSize = 10;
 // 显示上一问题
 - (void)preQuestion {
     [self commitAnswer];
-    if (_lastOrder < 2) {
+    if (_lastOrder < 1) {
         [self.view makeToast:@"前面没题目啦~~~"];
+        _lastOrder = 1;
     } else {
-        Question *question = [_questionDics objectForKey:[NSNumber numberWithInt:(_lastOrder - 1)]];
+        Question *question = [_questionDics objectForKey:[NSNumber numberWithInt:(_lastOrder)]];
         if (question) {
-            _lastOrder--;
             [self displayQuestionView:question];
         } else {
+            _isNextQuestion = NO;
             [self.view makeToastActivity];
-            [_dataHelper getQuestionsBeforOrder:_lastOrder chapterId:_chapter.ID userId:_userId pageSize:_pageSize];
+            int firstOrder = _lastOrder - _pageSize + 1;
+            if (firstOrder < 1) {
+                firstOrder = 1;
+            }
+            [_dataHelper getQuestionsAfterOrder:firstOrder chapterId:_chapter.ID userId:_userId questionType:_questionTypeCode pageSize:_pageSize];
         }
     }
 }
@@ -86,16 +99,17 @@ static const int _pageSize = 10;
 // 显示下一问题
 - (void)nextQuestion {
     [self commitAnswer];
-    if (_lastOrder + 1 > _questionCount) {
+    if (_lastOrder > _questionCount) {
         [self.view makeToast:@"这已经是最后一题啦！"];
+        _lastOrder = _questionCount;
     } else {
-        Question *question = [_questionDics objectForKey:[NSNumber numberWithInt:(_lastOrder + 1)]];
+        Question *question = [_questionDics objectForKey:[NSNumber numberWithInt:(_lastOrder)]];
         if (question) {
-            _lastOrder++;
             [self displayQuestionView:question];
         } else {
+            _isNextQuestion = YES;
             [self.view makeToastActivity];
-            [_dataHelper getQuestionsAfterOrder:_lastOrder chapterId:_chapter.ID userId:_userId pageSize:_pageSize];
+            [_dataHelper getQuestionsAfterOrder:_lastOrder chapterId:_chapter.ID userId:_userId questionType:_questionTypeCode pageSize:_pageSize];
         }
     }
 }
@@ -104,7 +118,8 @@ static const int _pageSize = 10;
 - (void)commitAnswer {
     [self closeTip];
     if ([StringUtil isNotTrimBlank:_answer]) {
-        [_dataHelper commitAnswerOfQuestion:_currentQuestion.ID chapterId:_chapter.ID userId:_userId answer:_answer];
+        NSString *trueAnswer = [_currentQuestion.key stringByReplacingOccurrencesOfString:@"," withString:@""];
+        [_dataHelper commitAnswerOfQuestion:_currentQuestion.ID chapterId:_chapter.ID userId:_userId questionType:_currentQuestion.type typeId:_currentQuestion.typeId order:_currentQuestion.order answer:trueAnswer userAnswer:_answer];
         _answer = nil;
     }
 }
@@ -112,6 +127,7 @@ static const int _pageSize = 10;
 // 答案解析，弹出气泡提示
 - (void)showTip:(UIView *)view {
     if (_popTipView) {
+        [_popTipView presentPointingAtView:view inView:self.view animated:YES];
         return;
     }
     UIView *vTip = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 55)];
@@ -155,7 +171,10 @@ static const int _pageSize = 10;
         case DATA_GET_LAST_QUESTION_ORDER:
             if (result.stateCode == STATE_SUCCESS) {
                 _lastOrder = [(NSNumber *)result.content intValue];
-                [_dataHelper getQuestionsAfterOrder:_lastOrder chapterId:_chapter.ID userId:_userId pageSize:10];
+                [_dataHelper getQuestionsAfterOrder:_lastOrder chapterId:_chapter.ID userId:_userId questionType:_questionTypeCode pageSize:10];
+            } else if (result.stateCode == STATE_OFFLINE) {
+                [self.view hideToastActivity];
+                [AppUtil offline:self];
             } else {
                 [self.view hideToastActivity];
             }
@@ -164,7 +183,8 @@ static const int _pageSize = 10;
             [self.view hideToastActivity];
             if (result.stateCode == STATE_SUCCESS) {
                 [self fillDictionaryWithQuestions:result.content];
-                [self nextQuestion];
+            } else if (result.stateCode == STATE_OFFLINE) {
+                [AppUtil offline:self];
             }
             break;
         case DATA_GET_QUESTIONS_BEFORE_ORDER:
@@ -181,9 +201,20 @@ static const int _pageSize = 10;
     if (!_questionDics) {
         _questionDics = [[NSMutableDictionary alloc] init];
     }
+    BOOL _hasLastOrder = NO;
     for (NSDictionary *questionDic in questions) {
-        Question *question = [Question buildFromDictionary:questionDic];
+        Question *question = [Question build:questionDic];
         [_questionDics setObject:question forKey:[NSNumber numberWithInt:question.order]];
+        if (question.order == _lastOrder) {
+            _hasLastOrder = YES;
+        }
+    }
+    if (_hasLastOrder) {
+        if (_isNextQuestion) {
+            [self nextQuestion];
+        } else {
+            [self preQuestion];
+        }
     }
 }
 
@@ -194,12 +225,14 @@ static const int _pageSize = 10;
 - (IBAction)onButtonClicked:(UIButton *)sender {
     switch (sender.tag) {
         case 1:
+            _lastOrder--;
             [self preQuestion];
             break;
         case 2:
             [self showTip:sender];
             break;
         case 3:
+            _lastOrder++;
             [self nextQuestion];
             break;
     }

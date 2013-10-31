@@ -8,4 +8,6 @@
 
 @interface VCLogin : UIViewController<UITextFieldDelegate>
 
+@property BOOL offline;
+
 @end

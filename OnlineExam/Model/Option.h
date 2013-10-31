@@ -17,6 +17,7 @@
 
 - (id)initWithID:(int)ID questionId:(int)questionId text:(NSString *)text no:(int)no isKey:(BOOL)isKey;
 + (id)buildFromDictionary:(NSDictionary *)dictionary;
++ (id)build:(NSDictionary *)dictionary;
 - (NSDictionary *)convertToDictionary;
 
 @end

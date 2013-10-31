@@ -15,7 +15,9 @@
 @property (strong,nonatomic)NSString *password;
 @property (strong,nonatomic)NSString *email;
 @property (strong,nonatomic)NSString *mobile;
-@property (strong,nonatomic)NSString *sex;
+@property (strong,nonatomic)NSString *realName;
+@property (strong,nonatomic)NSString *loginDate;
+@property (strong,nonatomic)NSString *loginCity;
 
 - (UserInfo *)initWithUsername:(NSString *)username password:(NSString *)password;
 + (id)buildFromDictionary:(NSDictionary *)dictionary;

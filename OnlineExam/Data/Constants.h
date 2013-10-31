@@ -20,12 +20,18 @@
 #define INFO_USERID @"INFO_USERID"
 #define INFO_USERNAME @"INFO_USERNAME"
 #define INFO_PASSWORD @"INFO_PASSWORD"
+#define INFO_REALNAME @"INFO_REALNAME"
+#define INFO_EMAIL @"INFO_EMAIL"
+#define INFO_MOBILE @"INFO_MOBILE"
+#define INFO_LOGIN_DATE @"INFO_LOGIN_DATE"
+#define INFO_LOGIN_CITY @"INFO_LOGIN_CITY"
 #define INFO_AUTO_LOGIN @"INFO_AUTO_LOGIN"
 
 // 定义问题类型枚举，有单选／多选／判断
-typedef NS_ENUM(NSInteger, QuestionType) {
-    QuestionTypeJudge = 1,
-    QuestionTypeRadio = 2,
-    QuestionTypeMulti = 3
+typedef NS_ENUM(NSInteger, EnumQuestionType) {
+    QuestionTypeAll = 0,
+    QuestionTypeJudge = 4,
+    QuestionTypeRadio = 1,
+    QuestionTypeMulti = 2
 };
 

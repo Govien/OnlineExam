@@ -33,11 +33,11 @@
         [self addSubview:_ivBook];
         
         _lblName = [[UILabel alloc] initWithFrame:CGRectMake(70, 0, 65, 70)];
-        _lblName.text = [NSString stringWithFormat:@"%@ %@", item.provinceName, item.productName];
+        _lblName.text = item.productName;
         _lblName.font = [UIFont systemFontOfSize:14];
         _lblName.textColor = [UIColor lightTextColor];
         _lblName.backgroundColor = [UIColor clearColor];
-        _lblName.numberOfLines = 3;
+        _lblName.numberOfLines = 4;
         [self addSubview:_lblName];
         
         _progress = [[PDColoredProgressView alloc] initWithProgressViewStyle: UIProgressViewStyleDefault];
