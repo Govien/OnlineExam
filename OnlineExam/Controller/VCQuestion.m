@@ -15,12 +15,13 @@
 
 @interface VCQuestion ()<Handler, OptionDelegate> {
     DataHelper *_dataHelper;
-    int _userId, _lastOrder, _questionCount, _questionTypeCode;
+    int _userId, _lastOrder, _questionCount, _questionType, _questionTypeId;
     NSMutableDictionary *_questionDics, *_qustionTypes;
     OptionView *_optionView;
     NSString *_answer;
     Question *_currentQuestion;
     CMPopTipView *_popTipView;
+    MBProgressHUD *_hudProgress;
     BOOL _isNextQuestion;
 }
 
@@ -33,6 +34,7 @@
 @implementation VCQuestion
 
 @synthesize chapter = _chapter;
+@synthesize isErrorShow = _isErrorShow;
 static const int _pageSize = 10;
 
 - (void)viewDidLoad
@@ -40,12 +42,19 @@ static const int _pageSize = 10;
     [super viewDidLoad];
 	self.title = _chapter.name;
     _dataHelper = [DataHelper init:self];
-    _questionCount = _chapter.totalCount;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg5.jpg"]];
     _vContent.backgroundColor = [UIColor clearColor];
     _userId = [[NSUserDefaults standardUserDefaults] integerForKey:INFO_USERID];
-    [self.view makeToastActivity];
-    [_dataHelper getLastQuestionOrderOfChapter:_chapter.ID userId:_userId questionType:_questionTypeCode];
+    _hudProgress = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _hudProgress.labelText = @"正在加载题目...";
+    if (_isErrorShow) {
+        _questionCount = _chapter.errorCount;
+        _lastOrder = 1;
+        [_dataHelper getQuestionsAfterOrder:_lastOrder chapterId:_chapter.ID userId:_userId questionType:_questionTypeId pageSize:_pageSize isError:_isErrorShow];
+    } else {
+        _questionCount = _chapter.totalCount;
+        [_dataHelper getLastQuestionOrderOfChapter:_chapter.ID userId:_userId questionType:_questionTypeId];
+    }
     if (!_qustionTypes) {
         for (QuestionType *type in _chapter.questionTypes) {
             [_qustionTypes setObject:type forKey:[NSNumber numberWithInt:type.typeCode]];
@@ -67,7 +76,7 @@ static const int _pageSize = 10;
     } else if (question.type == QuestionTypeMulti) {
         [mutableNo appendString:@"[多项选择题]"];
     }
-    [mutableNo appendFormat:@" 第%d / %d题：", _lastOrder, _chapter.totalCount];
+    [mutableNo appendFormat:@" 第%d / %d题：", _lastOrder, _questionCount];
     _lblNo.text = mutableNo;
     _lblTitle.text = question.title;
     _optionView = [[OptionView alloc] initWithQuestion:question optionDelegate:self];
@@ -86,12 +95,8 @@ static const int _pageSize = 10;
             [self displayQuestionView:question];
         } else {
             _isNextQuestion = NO;
-            [self.view makeToastActivity];
-            int firstOrder = _lastOrder - _pageSize + 1;
-            if (firstOrder < 1) {
-                firstOrder = 1;
-            }
-            [_dataHelper getQuestionsAfterOrder:firstOrder chapterId:_chapter.ID userId:_userId questionType:_questionTypeCode pageSize:_pageSize];
+            [_hudProgress show:YES];
+            [_dataHelper getQuestionsAfterOrder:_lastOrder chapterId:_chapter.ID userId:_userId questionType:_questionTypeId pageSize:_pageSize isError:_isErrorShow];
         }
     }
 }
@@ -108,8 +113,8 @@ static const int _pageSize = 10;
             [self displayQuestionView:question];
         } else {
             _isNextQuestion = YES;
-            [self.view makeToastActivity];
-            [_dataHelper getQuestionsAfterOrder:_lastOrder chapterId:_chapter.ID userId:_userId questionType:_questionTypeCode pageSize:_pageSize];
+            [_hudProgress show:YES];
+            [_dataHelper getQuestionsAfterOrder:_lastOrder chapterId:_chapter.ID userId:_userId questionType:_questionTypeId pageSize:_pageSize isError:_isErrorShow];
         }
     }
 }
@@ -118,8 +123,11 @@ static const int _pageSize = 10;
 - (void)commitAnswer {
     [self closeTip];
     if ([StringUtil isNotTrimBlank:_answer]) {
-        NSString *trueAnswer = [_currentQuestion.key stringByReplacingOccurrencesOfString:@"," withString:@""];
-        [_dataHelper commitAnswerOfQuestion:_currentQuestion.ID chapterId:_chapter.ID userId:_userId questionType:_currentQuestion.type typeId:_currentQuestion.typeId order:_currentQuestion.order answer:trueAnswer userAnswer:_answer];
+        int typeId = 0;
+        if (_questionType != QuestionTypeAll) {
+            typeId = _currentQuestion.typeId;
+        }
+        [_dataHelper commitAnswerOfQuestion:_currentQuestion.ID chapterId:_chapter.ID userId:_userId questionType:_currentQuestion.type typeId:typeId order:_currentQuestion.order answer:_currentQuestion.key userAnswer:_answer isError:_isErrorShow];
         _answer = nil;
     }
 }
@@ -136,6 +144,7 @@ static const int _pageSize = 10;
     UIImageView *ivLine = [[UIImageView alloc] initWithFrame:CGRectMake(5, 48, 270, 1)];
     UITextView *tvTip = [[UITextView alloc] initWithFrame:CGRectMake(5, 55, 270, 0)];
     vTip.backgroundColor = [UIColor clearColor];
+    lblAnswer.backgroundColor = [UIColor clearColor];
     tvTip.backgroundColor = [UIColor clearColor];
     ivClose.image = [UIImage imageNamed:@"ic_close"];
     ivLine.image = [UIImage imageNamed:@"line1"];
@@ -146,7 +155,7 @@ static const int _pageSize = 10;
     [vTip addSubview:ivLine];
     [vTip addSubview:tvTip];
     
-    lblAnswer.text = [NSString stringWithFormat:@"正确答案：%@", _currentQuestion.key];
+    lblAnswer.text = [NSString stringWithFormat:@"正确答案：%@", _currentQuestion.tipKey];
     tvTip.text = _currentQuestion.tip;
     CGSize tipContent = tvTip.contentSize;
     tvTip.frame = CGRectMake(tvTip.frame.origin.x, tvTip.frame.origin.y, tvTip.frame.size.width, tipContent.height);
@@ -171,35 +180,43 @@ static const int _pageSize = 10;
         case DATA_GET_LAST_QUESTION_ORDER:
             if (result.stateCode == STATE_SUCCESS) {
                 _lastOrder = [(NSNumber *)result.content intValue];
-                [_dataHelper getQuestionsAfterOrder:_lastOrder chapterId:_chapter.ID userId:_userId questionType:_questionTypeCode pageSize:10];
+                [_dataHelper getQuestionsAfterOrder:_lastOrder chapterId:_chapter.ID userId:_userId questionType:_questionTypeId pageSize:_pageSize isError:_isErrorShow];
             } else if (result.stateCode == STATE_OFFLINE) {
-                [self.view hideToastActivity];
+                [_hudProgress hide:YES];
                 [AppUtil offline:self];
             } else {
-                [self.view hideToastActivity];
+                [_hudProgress hide:YES];
             }
             break;
         case DATA_GET_QUESTIONS_AFTER_ORDER:
-            [self.view hideToastActivity];
+            [_hudProgress hide:YES];
+            _questionCount = [result.message intValue];
             if (result.stateCode == STATE_SUCCESS) {
                 [self fillDictionaryWithQuestions:result.content];
             } else if (result.stateCode == STATE_OFFLINE) {
                 [AppUtil offline:self];
+            } else {
+                [_hudProgress hide:YES];
             }
             break;
         case DATA_GET_QUESTIONS_BEFORE_ORDER:
-            [self.view hideToastActivity];
+            [_hudProgress hide:YES];
             if (result.stateCode == STATE_SUCCESS) {
                 [self fillDictionaryWithQuestions:result.content];
                 [self preQuestion];
             }
             break;
+        case DATA_COMMIT_ANSWER:
+            break;
     }
 }
 
-- (void)fillDictionaryWithQuestions:(NSArray *)questions {
+- (void)fillDictionaryWithQuestions:(id)questions {
     if (!_questionDics) {
         _questionDics = [[NSMutableDictionary alloc] init];
+    }
+    if (questions == [NSNull null]) {
+        return;
     }
     BOOL _hasLastOrder = NO;
     for (NSDictionary *questionDic in questions) {

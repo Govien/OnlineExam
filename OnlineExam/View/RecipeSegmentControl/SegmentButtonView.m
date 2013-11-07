@@ -118,8 +118,8 @@
 
 - (void)segmentTapped {
     // Notify delegate for post processing
-    if (self.delegate && [self.delegate respondsToSelector:@selector(segmentButtonHighlighted:)]) {
-        [self.delegate segmentButtonHighlighted:self];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onSegmentSelected:)]) {
+        [self.delegate onSegmentSelected:self];
     }
 }
 

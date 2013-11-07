@@ -77,8 +77,8 @@
     }];
 }
 
-- (void)getQuestionsAfterOrder:(int)order chapterId:(int)chapterId userId:(int)userId questionType:(int)questionType pageSize:(int)pageSize {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getQuestions.php", @"action_path", [NSNumber numberWithInt:order], @"order", [NSNumber numberWithInt:chapterId], @"chapterId", [NSNumber numberWithInt:userId], @"userId", [NSNumber numberWithInt:questionType], @"questionType", [NSNumber numberWithInt:pageSize], @"pageSize", nil];
+- (void)getQuestionsAfterOrder:(int)order chapterId:(int)chapterId userId:(int)userId questionType:(int)questionType pageSize:(int)pageSize isError:(BOOL)isError{
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"getQuestions.php", @"action_path", [NSNumber numberWithInt:order], @"order", [NSNumber numberWithInt:chapterId], @"chapterId", [NSNumber numberWithInt:userId], @"userId", [NSNumber numberWithInt:questionType], @"questionType", [NSNumber numberWithInt:pageSize], @"pageSize", [NSNumber numberWithBool:isError], @"isError", nil];
     [HttpUtil doPostWithBaseUrl:URL_SERVER params:params callback:^(BOOL isSuccessed, Result *result) {
         [self callback:DATA_GET_QUESTIONS_AFTER_ORDER result:result];
     }];
@@ -91,10 +91,10 @@
     }];
 }
 
-- (void)commitAnswerOfQuestion:(int)questionId chapterId:(int)chapterId userId:(int)userId questionType:(int)questionType typeId:(int)typeId order:(int)order answer:(NSString *)answer userAnswer:(NSString *)userAnswer {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"commitAnswer.php", @"action_path", [NSNumber numberWithInt:questionId], @"questionId", [NSNumber numberWithInt:chapterId], @"chapterId", [NSNumber numberWithInt:userId], @"userId", [NSNumber numberWithInt:questionType], @"questionType", [NSNumber numberWithInt:typeId], @"TixingId", [NSNumber numberWithInt:order], @"order", answer, @"answer", userAnswer, @"userAnswer", nil];
+- (void)commitAnswerOfQuestion:(int)questionId chapterId:(int)chapterId userId:(int)userId questionType:(int)questionType typeId:(int)typeId order:(int)order answer:(NSString *)answer userAnswer:(NSString *)userAnswer isError:(BOOL)isError {
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"commitAnswer.php", @"action_path", [NSNumber numberWithInt:questionId], @"questionId", [NSNumber numberWithInt:chapterId], @"chapterId", [NSNumber numberWithInt:userId], @"userId", [NSNumber numberWithInt:questionType], @"questionType", [NSNumber numberWithInt:typeId], @"TixingId", [NSNumber numberWithInt:order], @"order", answer, @"answer", userAnswer, @"userAnswer", [NSNumber numberWithBool:isError], @"isError", nil];
     [HttpUtil doPostWithBaseUrl:URL_SERVER params:params callback:^(BOOL isSuccessed, Result *result) {
-        [self callback:DATA_GET_QUESTIONS_BEFORE_ORDER result:result];
+        [self callback:DATA_COMMIT_ANSWER result:result];
     }];
 }
 

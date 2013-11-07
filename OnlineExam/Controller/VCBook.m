@@ -154,6 +154,7 @@
     if([segue.identifier isEqualToString:@"question"]) {
         VCQuestion *vcQuestion = [segue destinationViewController];
         vcQuestion.chapter = sender;
+        vcQuestion.isErrorShow = _isErrorShow;
     }
 }
 

@@ -6,130 +6,9 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		4141487A181684DC00830B78 /* line1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414879181684DC00830B78 /* line1.png */; };
-		4141487D18168AD900830B78 /* OptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4141487C18168AD900830B78 /* OptionView.m */; };
-		41414885181690AD00830B78 /* ic_multi_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414881181690AD00830B78 /* ic_multi_check.png */; };
-		41414886181690AD00830B78 /* ic_multi.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414882181690AD00830B78 /* ic_multi.png */; };
-		41414887181690AD00830B78 /* ic_radio_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414883181690AD00830B78 /* ic_radio_check.png */; };
-		41414888181690AD00830B78 /* ic_radio.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414884181690AD00830B78 /* ic_radio.png */; };
-		4141488B18169F6200830B78 /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = 4141488A18169F6200830B78 /* Option.m */; };
-		4142771F180FE25D0096661F /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4142771E180FE25D0096661F /* StringUtil.m */; };
-		419D787C181557C000D8B28D /* ic_item_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 419D787B181557C000D8B28D /* ic_item_right.png */; };
-		41A67AAC1812193F00ABE38F /* VCBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A67AA91812193F00ABE38F /* VCBook.m */; };
-		41A67AAD1812193F00ABE38F /* VCMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A67AAB1812193F00ABE38F /* VCMain.m */; };
-		41A67AB518121A1400ABE38F /* BookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A67AAF18121A1400ABE38F /* BookView.m */; };
-		41A67AB618121A1400ABE38F /* RecipeSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A67AB218121A1400ABE38F /* RecipeSegmentControl.m */; };
-		41A67AB718121A1400ABE38F /* SegmentButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A67AB418121A1400ABE38F /* SegmentButtonView.m */; };
-		41A67ACC18121A4600ABE38F /* bg_book_shelf.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AB818121A4600ABE38F /* bg_book_shelf.png */; };
-		41A67ACD18121A4600ABE38F /* bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AB918121A4600ABE38F /* bg1.png */; };
-		41A67ACE18121A4600ABE38F /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67ABA18121A4600ABE38F /* bg2.png */; };
-		41A67ACF18121A4600ABE38F /* book_closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67ABB18121A4600ABE38F /* book_closed.png */; };
-		41A67AD018121A4600ABE38F /* book_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67ABC18121A4600ABE38F /* book_new.png */; };
-		41A67AD118121A4600ABE38F /* book_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67ABD18121A4600ABE38F /* book_open.png */; };
-		41A67AD218121A4600ABE38F /* book_shelf_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67ABE18121A4600ABE38F /* book_shelf_cell.png */; };
-		41A67AD318121A4600ABE38F /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67ABF18121A4600ABE38F /* navbar.png */; };
-		41A67AD418121A4600ABE38F /* recipe_tab_1_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AC018121A4600ABE38F /* recipe_tab_1_active.png */; };
-		41A67AD518121A4600ABE38F /* recipe_tab_1_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AC118121A4600ABE38F /* recipe_tab_1_active@2x.png */; };
-		41A67AD618121A4600ABE38F /* recipe_tab_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AC218121A4600ABE38F /* recipe_tab_1.png */; };
-		41A67AD718121A4600ABE38F /* recipe_tab_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AC318121A4600ABE38F /* recipe_tab_1@2x.png */; };
-		41A67AD818121A4600ABE38F /* recipe_tab_2_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AC418121A4600ABE38F /* recipe_tab_2_active.png */; };
-		41A67AD918121A4600ABE38F /* recipe_tab_2_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AC518121A4600ABE38F /* recipe_tab_2_active@2x.png */; };
-		41A67ADA18121A4600ABE38F /* recipe_tab_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AC618121A4600ABE38F /* recipe_tab_2.png */; };
-		41A67ADB18121A4600ABE38F /* recipe_tab_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AC718121A4600ABE38F /* recipe_tab_2@2x.png */; };
-		41A67ADC18121A4600ABE38F /* recipe_tab_3_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AC818121A4600ABE38F /* recipe_tab_3_active.png */; };
-		41A67ADD18121A4600ABE38F /* recipe_tab_3_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67AC918121A4600ABE38F /* recipe_tab_3_active@2x.png */; };
-		41A67ADE18121A4600ABE38F /* recipe_tab_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67ACA18121A4600ABE38F /* recipe_tab_3.png */; };
-		41A67ADF18121A4600ABE38F /* recipe_tab_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A67ACB18121A4600ABE38F /* recipe_tab_3@2x.png */; };
-		41A67AE41812263700ABE38F /* drawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A67AE11812263700ABE38F /* drawing.m */; };
-		41A67AE51812263700ABE38F /* PDColoredProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A67AE31812263700ABE38F /* PDColoredProgressView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		41ACF92818160E6500EC29A6 /* ic_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF92718160E6400EC29A6 /* ic_right.png */; };
-		41ACF93018160FAA00EC29A6 /* bg_book.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF92918160FAA00EC29A6 /* bg_book.png */; };
-		41ACF93118160FAA00EC29A6 /* bg3.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF92A18160FAA00EC29A6 /* bg3.png */; };
-		41ACF93218160FAA00EC29A6 /* bg5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF92B18160FAA00EC29A6 /* bg5.jpg */; };
-		41ACF93318160FAA00EC29A6 /* item1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF92C18160FAA00EC29A6 /* item1.png */; };
-		41ACF93418160FAA00EC29A6 /* item2.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF92D18160FAA00EC29A6 /* item2.png */; };
-		41ACF93618160FAA00EC29A6 /* item3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF92F18160FAA00EC29A6 /* item3.jpg */; };
-		41ACF9381816108200EC29A6 /* bg4.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF9371816108200EC29A6 /* bg4.png */; };
-		41ACF93B1816393000EC29A6 /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 41ACF93A1816393000EC29A6 /* Chapter.m */; };
-		41ACF93E1816684E00EC29A6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 41ACF93D1816684E00EC29A6 /* Question.m */; };
-		41ACF9441816792400EC29A6 /* VCQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 41ACF9431816792400EC29A6 /* VCQuestion.m */; };
-		41ACF94818167BFF00EC29A6 /* btn_answer.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF94518167BFF00EC29A6 /* btn_answer.png */; };
-		41ACF94918167BFF00EC29A6 /* btn_next.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF94618167BFF00EC29A6 /* btn_next.png */; };
-		41ACF94A18167BFF00EC29A6 /* btn_pre.png in Resources */ = {isa = PBXBuildFile; fileRef = 41ACF94718167BFF00EC29A6 /* btn_pre.png */; };
-		41AF8CB0181A6218009DE7D5 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AF8CAF181A6218009DE7D5 /* CMPopTipView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		41B211CA180E96E0005240F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211C9180E96E0005240F9 /* Foundation.framework */; };
-		41B211CC180E96E0005240F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211CB180E96E0005240F9 /* CoreGraphics.framework */; };
-		41B211CE180E96E0005240F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211CD180E96E0005240F9 /* UIKit.framework */; };
-		41B211D4180E96E0005240F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41B211D2180E96E0005240F9 /* InfoPlist.strings */; };
-		41B211D6180E96E0005240F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B211D5180E96E0005240F9 /* main.m */; };
-		41B211DA180E96E0005240F9 /* GoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B211D9180E96E0005240F9 /* GoAppDelegate.m */; };
-		41B211DC180E96E0005240F9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41B211DB180E96E0005240F9 /* Images.xcassets */; };
-		41B211E3180E96E0005240F9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211E2180E96E0005240F9 /* XCTest.framework */; };
-		41B211E4180E96E0005240F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211C9180E96E0005240F9 /* Foundation.framework */; };
-		41B211E5180E96E0005240F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211CD180E96E0005240F9 /* UIKit.framework */; };
-		41B211ED180E96E0005240F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41B211EB180E96E0005240F9 /* InfoPlist.strings */; };
-		41B211EF180E96E0005240F9 /* OnlineExamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B211EE180E96E0005240F9 /* OnlineExamTests.m */; };
-		41B211F9180E9874005240F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41B211F8180E9874005240F9 /* Main.storyboard */; };
-		41B211FD180E9B0C005240F9 /* VCLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B211FC180E9B0C005240F9 /* VCLogin.m */; };
-		41B21200180E9CDC005240F9 /* bg_login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41B211FF180E9CDC005240F9 /* bg_login.jpg */; };
-		41B21203180EAACA005240F9 /* ic_close_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B21201180EAACA005240F9 /* ic_close_active.png */; };
-		41B21204180EAACA005240F9 /* ic_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B21202180EAACA005240F9 /* ic_close.png */; };
-		41B21206180EAD3F005240F9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B21205180EAD3F005240F9 /* QuartzCore.framework */; };
-		41B2120D180EB189005240F9 /* btn_blue_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B2120B180EB189005240F9 /* btn_blue_active.png */; };
-		41B2120E180EB189005240F9 /* btn_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B2120C180EB189005240F9 /* btn_blue.png */; };
-		41B21210180EB503005240F9 /* btn_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B2120F180EB503005240F9 /* btn_gray.png */; };
-		41B526D91810DE6000BBD5A4 /* HttpUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B526D81810DE6000BBD5A4 /* HttpUtil.m */; };
-		41B526DC1810FFA300BBD5A4 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B526DB1810FFA300BBD5A4 /* UserInfo.m */; };
-		41B526E1181114CA00BBD5A4 /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B526E0181114CA00BBD5A4 /* Toast+UIView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		41DF37A11820E6A60034B916 /* QuestionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DF37A01820E6A60034B916 /* QuestionType.m */; };
-		41DF37A418211F540034B916 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DF37A318211F540034B916 /* AppUtil.m */; };
-		41DF37A818212FFF0034B916 /* BlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DF37A718212FFF0034B916 /* BlockAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		41DF37AB182130920034B916 /* BlockBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DF37AA182130920034B916 /* BlockBackground.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		41DF37C018213A2B0034B916 /* alert-black-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37B218213A2B0034B916 /* alert-black-button.png */; };
-		41DF37C118213A2B0034B916 /* alert-black-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37B318213A2B0034B916 /* alert-black-button@2x.png */; };
-		41DF37C218213A2B0034B916 /* alert-gray-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37B418213A2B0034B916 /* alert-gray-button.png */; };
-		41DF37C318213A2B0034B916 /* alert-gray-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37B518213A2B0034B916 /* alert-gray-button@2x.png */; };
-		41DF37C418213A2B0034B916 /* alert-green-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37B618213A2B0034B916 /* alert-green-button.png */; };
-		41DF37C518213A2B0034B916 /* alert-green-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37B718213A2B0034B916 /* alert-green-button@2x.png */; };
-		41DF37C618213A2B0034B916 /* alert-red-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37B818213A2B0034B916 /* alert-red-button.png */; };
-		41DF37C718213A2B0034B916 /* alert-red-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37B918213A2B0034B916 /* alert-red-button@2x.png */; };
-		41DF37C818213A2B0034B916 /* alert-window-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37BA18213A2B0034B916 /* alert-window-landscape.png */; };
-		41DF37C918213A2B0034B916 /* alert-window-landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37BB18213A2B0034B916 /* alert-window-landscape@2x.png */; };
-		41DF37CA18213A2B0034B916 /* alert-window.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37BC18213A2B0034B916 /* alert-window.png */; };
-		41DF37CB18213A2B0034B916 /* alert-window@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37BD18213A2B0034B916 /* alert-window@2x.png */; };
-		41DF37CC18213A2B0034B916 /* alert-yellow-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37BE18213A2B0034B916 /* alert-yellow-button.png */; };
-		41DF37CD18213A2B0034B916 /* alert-yellow-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DF37BF18213A2B0034B916 /* alert-yellow-button@2x.png */; };
-		41E6910A18114084002FC35F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E6910918114084002FC35F /* MBProgressHUD.m */; };
-		41FEF0FA1810329F00C39273 /* DataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0D81810329F00C39273 /* DataHelper.m */; };
-		41FEF0FB1810329F00C39273 /* DataTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0DA1810329F00C39273 /* DataTest.m */; };
-		41FEF0FC1810329F00C39273 /* MessageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0DC1810329F00C39273 /* MessageHandler.m */; };
-		41FEF0FD1810329F00C39273 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0E01810329F00C39273 /* AFHTTPClient.m */; };
-		41FEF0FE1810329F00C39273 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0E21810329F00C39273 /* AFHTTPRequestOperation.m */; };
-		41FEF0FF1810329F00C39273 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0E41810329F00C39273 /* AFImageRequestOperation.m */; };
-		41FEF1001810329F00C39273 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0E61810329F00C39273 /* AFJSONRequestOperation.m */; };
-		41FEF1011810329F00C39273 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0E81810329F00C39273 /* AFNetworkActivityIndicatorManager.m */; };
-		41FEF1021810329F00C39273 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0EB1810329F00C39273 /* AFPropertyListRequestOperation.m */; };
-		41FEF1031810329F00C39273 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0ED1810329F00C39273 /* AFURLConnectionOperation.m */; };
-		41FEF1041810329F00C39273 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0EF1810329F00C39273 /* AFXMLRequestOperation.m */; };
-		41FEF1051810329F00C39273 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0F11810329F00C39273 /* UIImageView+AFNetworking.m */; };
-		41FEF1071810329F00C39273 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0F71810329F00C39273 /* Book.m */; };
-		41FEF1081810329F00C39273 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF0F91810329F00C39273 /* OrderItem.m */; };
-		41FEF10D181035A000C39273 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF10C181035A000C39273 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		41FEF11518103EFA00C39273 /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEF11418103EFA00C39273 /* Result.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		41B211E6180E96E0005240F9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 41B211BE180E96DF005240F9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 41B211C5180E96E0005240F9;
-			remoteInfo = OnlineExam;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		4131A4A2182BD1DD00BD3838 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		4131A4A3182BD1DD00BD3838 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		41414879181684DC00830B78 /* line1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line1.png; sourceTree = "<group>"; };
 		4141487B18168AD900830B78 /* OptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionView.h; sourceTree = "<group>"; };
 		4141487C18168AD900830B78 /* OptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionView.m; sourceTree = "<group>"; };
@@ -141,6 +20,9 @@
 		4141488A18169F6200830B78 /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Option.m; sourceTree = "<group>"; };
 		4142771D180FE25D0096661F /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
 		4142771E180FE25D0096661F /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
+		41500AA4182A2C3A00832136 /* ic_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logout.png; sourceTree = "<group>"; };
+		41500AA6182A3E2200832136 /* ic_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_avatar.png; sourceTree = "<group>"; };
+		41500AA8182A452C00832136 /* ic_feeckback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_feeckback.png; sourceTree = "<group>"; };
 		419D787B181557C000D8B28D /* ic_item_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_item_right.png; sourceTree = "<group>"; };
 		41A67AA81812193F00ABE38F /* VCBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCBook.h; sourceTree = "<group>"; };
 		41A67AA91812193F00ABE38F /* VCBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCBook.m; sourceTree = "<group>"; };
@@ -194,20 +76,18 @@
 		41ACF94718167BFF00EC29A6 /* btn_pre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_pre.png; sourceTree = "<group>"; };
 		41AF8CAE181A6218009DE7D5 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
 		41AF8CAF181A6218009DE7D5 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
-		41B211C6180E96E0005240F9 /* OnlineExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B211C9180E96E0005240F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		41B211CB180E96E0005240F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		41B211CD180E96E0005240F9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		41B211D1180E96E0005240F9 /* OnlineExam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnlineExam-Info.plist"; sourceTree = "<group>"; };
+		41B211D1180E96E0005240F9 /* OnlineExam.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnlineExam.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
 		41B211D3180E96E0005240F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		41B211D5180E96E0005240F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		41B211D7180E96E0005240F9 /* OnlineExam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnlineExam-Prefix.pch"; sourceTree = "<group>"; };
+		41B211D7180E96E0005240F9 /* OnlineExam.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnlineExam.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
 		41B211D8180E96E0005240F9 /* GoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoAppDelegate.h; sourceTree = "<group>"; };
 		41B211D9180E96E0005240F9 /* GoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoAppDelegate.m; sourceTree = "<group>"; };
 		41B211DB180E96E0005240F9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		41B211E1180E96E0005240F9 /* OnlineExamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlineExamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B211E2180E96E0005240F9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		41B211EA180E96E0005240F9 /* OnlineExamTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnlineExamTests-Info.plist"; sourceTree = "<group>"; };
+		41B211EA180E96E0005240F9 /* OnlineExam.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnlineExam.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests-Info.plist"; sourceTree = "<group>"; };
 		41B211EC180E96E0005240F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		41B211EE180E96E0005240F9 /* OnlineExamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineExamTests.m; sourceTree = "<group>"; };
 		41B211F8180E9874005240F9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -287,30 +167,6 @@
 		41FEF11418103EFA00C39273 /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		41B211C3180E96E0005240F9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				41B21206180EAD3F005240F9 /* QuartzCore.framework in Frameworks */,
-				41B211CC180E96E0005240F9 /* CoreGraphics.framework in Frameworks */,
-				41B211CE180E96E0005240F9 /* UIKit.framework in Frameworks */,
-				41B211CA180E96E0005240F9 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		41B211DE180E96E0005240F9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				41B211E3180E96E0005240F9 /* XCTest.framework in Frameworks */,
-				41B211E5180E96E0005240F9 /* UIKit.framework in Frameworks */,
-				41B211E4180E96E0005240F9 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
 		4142771C180FE2290096661F /* Util */ = {
 			isa = PBXGroup;
@@ -368,8 +224,6 @@
 		41B211C7180E96E0005240F9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				41B211C6180E96E0005240F9 /* OnlineExam.app */,
-				41B211E1180E96E0005240F9 /* OnlineExamTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -407,10 +261,10 @@
 		41B211D0180E96E0005240F9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				41B211D1180E96E0005240F9 /* OnlineExam-Info.plist */,
+				41B211D1180E96E0005240F9 /* OnlineExam.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Info.plist */,
 				41B211D2180E96E0005240F9 /* InfoPlist.strings */,
 				41B211D5180E96E0005240F9 /* main.m */,
-				41B211D7180E96E0005240F9 /* OnlineExam-Prefix.pch */,
+				41B211D7180E96E0005240F9 /* OnlineExam.temp_caseinsensitive_rename.temp_caseinsensitive_rename-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -427,7 +281,7 @@
 		41B211E9180E96E0005240F9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				41B211EA180E96E0005240F9 /* OnlineExamTests-Info.plist */,
+				41B211EA180E96E0005240F9 /* OnlineExam.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests-Info.plist */,
 				41B211EB180E96E0005240F9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -452,6 +306,11 @@
 		41B211FE180E9CDC005240F9 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				4131A4A2182BD1DD00BD3838 /* logo.png */,
+				4131A4A3182BD1DD00BD3838 /* logo@2x.png */,
+				41500AA8182A452C00832136 /* ic_feeckback.png */,
+				41500AA6182A3E2200832136 /* ic_avatar.png */,
+				41500AA4182A2C3A00832136 /* ic_logout.png */,
 				41DF37B1182139EA0034B916 /* Alert */,
 				41A67AB918121A4600ABE38F /* bg1.png */,
 				41A67ABA18121A4600ABE38F /* bg2.png */,
@@ -652,44 +511,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXNativeTarget section */
-		41B211C5180E96E0005240F9 /* OnlineExam */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 41B211F2180E96E0005240F9 /* Build configuration list for PBXNativeTarget "OnlineExam" */;
-			buildPhases = (
-				41B211C2180E96E0005240F9 /* Sources */,
-				41B211C3180E96E0005240F9 /* Frameworks */,
-				41B211C4180E96E0005240F9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = OnlineExam;
-			productName = OnlineExam;
-			productReference = 41B211C6180E96E0005240F9 /* OnlineExam.app */;
-			productType = "com.apple.product-type.application";
-		};
-		41B211E0180E96E0005240F9 /* OnlineExamTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 41B211F5180E96E0005240F9 /* Build configuration list for PBXNativeTarget "OnlineExamTests" */;
-			buildPhases = (
-				41B211DD180E96E0005240F9 /* Sources */,
-				41B211DE180E96E0005240F9 /* Frameworks */,
-				41B211DF180E96E0005240F9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				41B211E7180E96E0005240F9 /* PBXTargetDependency */,
-			);
-			name = OnlineExamTests;
-			productName = OnlineExamTests;
-			productReference = 41B211E1180E96E0005240F9 /* OnlineExamTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
 /* Begin PBXProject section */
 		41B211BE180E96DF005240F9 /* Project object */ = {
 			isa = PBXProject;
@@ -697,11 +518,6 @@
 				CLASSPREFIX = Go;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Goven;
-				TargetAttributes = {
-					41B211E0180E96E0005240F9 = {
-						TestTargetID = 41B211C5180E96E0005240F9;
-					};
-				};
 			};
 			buildConfigurationList = 41B211C1180E96DF005240F9 /* Build configuration list for PBXProject "OnlineExam" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -715,156 +531,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				41B211C5180E96E0005240F9 /* OnlineExam */,
-				41B211E0180E96E0005240F9 /* OnlineExamTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		41B211C4180E96E0005240F9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				41ACF9381816108200EC29A6 /* bg4.png in Resources */,
-				41ACF94918167BFF00EC29A6 /* btn_next.png in Resources */,
-				41A67ACC18121A4600ABE38F /* bg_book_shelf.png in Resources */,
-				41A67AD218121A4600ABE38F /* book_shelf_cell.png in Resources */,
-				41A67AD018121A4600ABE38F /* book_new.png in Resources */,
-				41DF37C518213A2B0034B916 /* alert-green-button@2x.png in Resources */,
-				41ACF94818167BFF00EC29A6 /* btn_answer.png in Resources */,
-				41A67AD918121A4600ABE38F /* recipe_tab_2_active@2x.png in Resources */,
-				41DF37C618213A2B0034B916 /* alert-red-button.png in Resources */,
-				41A67ADB18121A4600ABE38F /* recipe_tab_2@2x.png in Resources */,
-				419D787C181557C000D8B28D /* ic_item_right.png in Resources */,
-				41A67ACF18121A4600ABE38F /* book_closed.png in Resources */,
-				41ACF92818160E6500EC29A6 /* ic_right.png in Resources */,
-				41A67ADD18121A4600ABE38F /* recipe_tab_3_active@2x.png in Resources */,
-				41B21204180EAACA005240F9 /* ic_close.png in Resources */,
-				41DF37CB18213A2B0034B916 /* alert-window@2x.png in Resources */,
-				41DF37C418213A2B0034B916 /* alert-green-button.png in Resources */,
-				41DF37CA18213A2B0034B916 /* alert-window.png in Resources */,
-				41A67AD518121A4600ABE38F /* recipe_tab_1_active@2x.png in Resources */,
-				41A67AD418121A4600ABE38F /* recipe_tab_1_active.png in Resources */,
-				41ACF93618160FAA00EC29A6 /* item3.jpg in Resources */,
-				41DF37C318213A2B0034B916 /* alert-gray-button@2x.png in Resources */,
-				41B2120E180EB189005240F9 /* btn_blue.png in Resources */,
-				41DF37C218213A2B0034B916 /* alert-gray-button.png in Resources */,
-				41414886181690AD00830B78 /* ic_multi.png in Resources */,
-				41B21200180E9CDC005240F9 /* bg_login.jpg in Resources */,
-				41A67ADF18121A4600ABE38F /* recipe_tab_3@2x.png in Resources */,
-				41A67ADA18121A4600ABE38F /* recipe_tab_2.png in Resources */,
-				41A67AD718121A4600ABE38F /* recipe_tab_1@2x.png in Resources */,
-				41ACF93418160FAA00EC29A6 /* item2.png in Resources */,
-				41414888181690AD00830B78 /* ic_radio.png in Resources */,
-				41DF37C018213A2B0034B916 /* alert-black-button.png in Resources */,
-				41ACF93018160FAA00EC29A6 /* bg_book.png in Resources */,
-				4141487A181684DC00830B78 /* line1.png in Resources */,
-				41ACF93318160FAA00EC29A6 /* item1.png in Resources */,
-				41A67ACD18121A4600ABE38F /* bg1.png in Resources */,
-				41B211F9180E9874005240F9 /* Main.storyboard in Resources */,
-				41B211D4180E96E0005240F9 /* InfoPlist.strings in Resources */,
-				41A67AD318121A4600ABE38F /* navbar.png in Resources */,
-				41ACF94A18167BFF00EC29A6 /* btn_pre.png in Resources */,
-				41DF37C118213A2B0034B916 /* alert-black-button@2x.png in Resources */,
-				41A67ADC18121A4600ABE38F /* recipe_tab_3_active.png in Resources */,
-				41A67ADE18121A4600ABE38F /* recipe_tab_3.png in Resources */,
-				41ACF93218160FAA00EC29A6 /* bg5.jpg in Resources */,
-				41414887181690AD00830B78 /* ic_radio_check.png in Resources */,
-				41B211DC180E96E0005240F9 /* Images.xcassets in Resources */,
-				41B2120D180EB189005240F9 /* btn_blue_active.png in Resources */,
-				41414885181690AD00830B78 /* ic_multi_check.png in Resources */,
-				41A67AD818121A4600ABE38F /* recipe_tab_2_active.png in Resources */,
-				41DF37CD18213A2B0034B916 /* alert-yellow-button@2x.png in Resources */,
-				41DF37C918213A2B0034B916 /* alert-window-landscape@2x.png in Resources */,
-				41A67ACE18121A4600ABE38F /* bg2.png in Resources */,
-				41B21203180EAACA005240F9 /* ic_close_active.png in Resources */,
-				41A67AD618121A4600ABE38F /* recipe_tab_1.png in Resources */,
-				41DF37C818213A2B0034B916 /* alert-window-landscape.png in Resources */,
-				41ACF93118160FAA00EC29A6 /* bg3.png in Resources */,
-				41A67AD118121A4600ABE38F /* book_open.png in Resources */,
-				41DF37CC18213A2B0034B916 /* alert-yellow-button.png in Resources */,
-				41B21210180EB503005240F9 /* btn_gray.png in Resources */,
-				41DF37C718213A2B0034B916 /* alert-red-button@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		41B211DF180E96E0005240F9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				41B211ED180E96E0005240F9 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		41B211C2180E96E0005240F9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				41FEF1031810329F00C39273 /* AFURLConnectionOperation.m in Sources */,
-				41A67AB618121A1400ABE38F /* RecipeSegmentControl.m in Sources */,
-				41ACF9441816792400EC29A6 /* VCQuestion.m in Sources */,
-				41A67AAD1812193F00ABE38F /* VCMain.m in Sources */,
-				41FEF1041810329F00C39273 /* AFXMLRequestOperation.m in Sources */,
-				41A67AE41812263700ABE38F /* drawing.m in Sources */,
-				41FEF11518103EFA00C39273 /* Result.m in Sources */,
-				41DF37A11820E6A60034B916 /* QuestionType.m in Sources */,
-				41A67AAC1812193F00ABE38F /* VCBook.m in Sources */,
-				4141488B18169F6200830B78 /* Option.m in Sources */,
-				41FEF1001810329F00C39273 /* AFJSONRequestOperation.m in Sources */,
-				41FEF0FE1810329F00C39273 /* AFHTTPRequestOperation.m in Sources */,
-				41FEF0FA1810329F00C39273 /* DataHelper.m in Sources */,
-				41B526E1181114CA00BBD5A4 /* Toast+UIView.m in Sources */,
-				41ACF93B1816393000EC29A6 /* Chapter.m in Sources */,
-				41E6910A18114084002FC35F /* MBProgressHUD.m in Sources */,
-				41FEF0FB1810329F00C39273 /* DataTest.m in Sources */,
-				41DF37A818212FFF0034B916 /* BlockAlertView.m in Sources */,
-				41B526D91810DE6000BBD5A4 /* HttpUtil.m in Sources */,
-				41B526DC1810FFA300BBD5A4 /* UserInfo.m in Sources */,
-				4142771F180FE25D0096661F /* StringUtil.m in Sources */,
-				41B211FD180E9B0C005240F9 /* VCLogin.m in Sources */,
-				41DF37A418211F540034B916 /* AppUtil.m in Sources */,
-				41FEF0FC1810329F00C39273 /* MessageHandler.m in Sources */,
-				4141487D18168AD900830B78 /* OptionView.m in Sources */,
-				41FEF1071810329F00C39273 /* Book.m in Sources */,
-				41FEF0FF1810329F00C39273 /* AFImageRequestOperation.m in Sources */,
-				41FEF1011810329F00C39273 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				41A67AB518121A1400ABE38F /* BookView.m in Sources */,
-				41A67AB718121A1400ABE38F /* SegmentButtonView.m in Sources */,
-				41FEF1051810329F00C39273 /* UIImageView+AFNetworking.m in Sources */,
-				41B211DA180E96E0005240F9 /* GoAppDelegate.m in Sources */,
-				41B211D6180E96E0005240F9 /* main.m in Sources */,
-				41FEF0FD1810329F00C39273 /* AFHTTPClient.m in Sources */,
-				41A67AE51812263700ABE38F /* PDColoredProgressView.m in Sources */,
-				41DF37AB182130920034B916 /* BlockBackground.m in Sources */,
-				41FEF10D181035A000C39273 /* JSONKit.m in Sources */,
-				41AF8CB0181A6218009DE7D5 /* CMPopTipView.m in Sources */,
-				41ACF93E1816684E00EC29A6 /* Question.m in Sources */,
-				41FEF1081810329F00C39273 /* OrderItem.m in Sources */,
-				41FEF1021810329F00C39273 /* AFPropertyListRequestOperation.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		41B211DD180E96E0005240F9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				41B211EF180E96E0005240F9 /* OnlineExamTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		41B211E7180E96E0005240F9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 41B211C5180E96E0005240F9 /* OnlineExam */;
-			targetProxy = 41B211E6180E96E0005240F9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		41B211D2180E96E0005240F9 /* InfoPlist.strings */ = {
@@ -919,7 +588,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -952,79 +621,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		41B211F3180E96E0005240F9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OnlineExam/OnlineExam-Prefix.pch";
-				INFOPLIST_FILE = "OnlineExam/OnlineExam-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		41B211F4180E96E0005240F9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OnlineExam/OnlineExam-Prefix.pch";
-				INFOPLIST_FILE = "OnlineExam/OnlineExam-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		41B211F6180E96E0005240F9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OnlineExam.app/OnlineExam";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OnlineExam/OnlineExam-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "OnlineExamTests/OnlineExamTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		41B211F7180E96E0005240F9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OnlineExam.app/OnlineExam";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OnlineExam/OnlineExam-Prefix.pch";
-				INFOPLIST_FILE = "OnlineExamTests/OnlineExamTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -1036,24 +635,6 @@
 			buildConfigurations = (
 				41B211F0180E96E0005240F9 /* Debug */,
 				41B211F1180E96E0005240F9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		41B211F2180E96E0005240F9 /* Build configuration list for PBXNativeTarget "OnlineExam" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				41B211F3180E96E0005240F9 /* Debug */,
-				41B211F4180E96E0005240F9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		41B211F5180E96E0005240F9 /* Build configuration list for PBXNativeTarget "OnlineExamTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				41B211F6180E96E0005240F9 /* Debug */,
-				41B211F7180E96E0005240F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
