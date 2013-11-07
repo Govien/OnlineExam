@@ -12,11 +12,10 @@
 @implementation HttpUtil
 
 + (void)doPostWithBaseUrl:(NSString *)baseUrl params:(NSDictionary *)params callback:(void (^)(BOOL isSuccessed, Result *result))callback {
-    NSArray *actions = [NSArray arrayWithObjects:@"regist.php", @"login.php", @"getOrderItems.php", @"getBookInfo.php", @"getChapters.php", @"getLastQuestionOrder.php", @"getQuestions.php", @"commitAnswer.php", @"getErrorQuestions.php", nil];
+    NSArray *actions = [NSArray arrayWithObjects:@"regist.php", @"login.php", @"getOrderItems.php", @"getBookInfo.php", @"getChapters.php", @"getLastQuestionOrder.php", @"getQuestions.php", @"commitAnswer.php", nil];
     // 本地模拟测试数据
     NSString *actionPath = [params objectForKey:@"action_path"];
     if (![actions containsObject:actionPath]) {
-
         NSString *responseStr = [DataTest getData:actionPath];
         NSDictionary *map = [responseStr objectFromJSONString];
         Result *result = [[Result alloc] init];

@@ -31,10 +31,10 @@
 // 获取两个题号之间的题目
 - (void)getQuestionsBetweenOrder:(int)chapterId userId:(int)userId minOrder:(int)minOrder maxOrder:(int)maxOrder;
 // 获取某个题号之后的题目
-- (void)getQuestionsAfterOrder:(int)order chapterId:(int)chapterId userId:(int)userId questionType:(int)questionType pageSize:(int)pageSize isError:(BOOL)isError;
+- (void)getQuestionsAfterOrder:(int)order chapterId:(int)chapterId userId:(int)userId questionType:(int)questionType pageSize:(int)pageSize;
 // 获取某个题号之前的题目
 - (void)getQuestionsBeforOrder:(int)order chapterId:(int)chapterId userId:(int)userId questionType:(int)questionType pageSize:(int)pageSize;
 // 提交答案
-- (void)commitAnswerOfQuestion:(int)questionId chapterId:(int)chapterId userId:(int)userId questionType:(int)questionType typeId:(int)typeId order:(int)order answer:(NSString *)answer userAnswer:(NSString *)userAnswer isError:(BOOL)isError;
+- (void)commitAnswerOfQuestion:(int)questionId chapterId:(int)chapterId userId:(int)userId questionType:(int)questionType typeId:(int)typeId order:(int)order answer:(NSString *)answer userAnswer:(NSString *)userAnswer;
 
 @end

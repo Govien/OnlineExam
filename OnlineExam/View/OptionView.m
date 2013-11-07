@@ -100,7 +100,7 @@
             ivBg.highlighted = YES;
             ivHead.highlighted = YES;
             Option *option = objc_getAssociatedObject(control, &"option");
-            [_delegate onOptionChecked:option answer:option.value];
+            [_delegate onOptionChecked:option answer:[NSString stringWithFormat:@"%d", option.no]];
         } else if (ivBg.highlighted){
             ivBg.highlighted = NO;
             ivHead.highlighted = NO;
@@ -121,12 +121,10 @@
         }
         if (ivBg.highlighted) {
             Option *temp = objc_getAssociatedObject(control, &"option");
-            [answer appendFormat:@"%@,",temp.value];
+            [answer appendFormat:@"%d,", temp.no];
         }
     }
-    if ([StringUtil isNotTrimBlank:answer]) {
-        [_delegate onOptionChecked:option answer:[answer substringToIndex:answer.length - 1]];
-    }
+    [_delegate onOptionChecked:option answer:[answer substringToIndex:answer.length - 2]];
 }
 
 @end

@@ -34,9 +34,9 @@
 
 + (id)build:(NSDictionary *)dictionary {
     Option *option = [[Option alloc] init];
-    option.text = [NSString stringWithFormat:@"%@.%@", [dictionary objectForKey:@"key"],[dictionary objectForKey:@"answer_text"]];
+    option.text = [dictionary objectForKey:@"answer_text"];
     option.no = [[dictionary objectForKey:@"orderid"] intValue];
-    option.value = [dictionary objectForKey:@"value"];
+//    option.isKey = [[dictionary objectForKey:@"is_true_answer"] boolValue];
     id val = [dictionary objectForKey:@"is_true_answer"];
     if (val != [NSNull null]) {
         option.isKey = [val boolValue];

@@ -14,13 +14,13 @@
 
 + (void)offline:(UIViewController *)vc {
     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"警告" message:@"您的帐号在异地登录！"];
-    [alert setDestructiveButtonWithTitle:@"重新登录" block:^{
+    [alert setCancelButtonWithTitle:@"重新登录" block:^{
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:INFO_AUTO_LOGIN];
         VCLogin *vcLogin = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"vcLogin"];
         vcLogin.offline = YES;
         [vc presentViewController:vcLogin animated:YES completion:nil];
     }];
-    [alert setCancelButtonWithTitle:@"退出应用" block:^{
+    [alert setDestructiveButtonWithTitle:@"退出应用" block:^{
         [self exitApplication];
     }];
     [alert show];

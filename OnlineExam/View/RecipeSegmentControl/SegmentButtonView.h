@@ -20,6 +20,6 @@
 
 @protocol SegmentButtonViewDelegate <NSObject>
 
-- (void)onSegmentSelected:(SegmentButtonView *)segmentButton;
+- (void)segmentButtonHighlighted:(SegmentButtonView *)highlightedSegmentButton;
 
 @end

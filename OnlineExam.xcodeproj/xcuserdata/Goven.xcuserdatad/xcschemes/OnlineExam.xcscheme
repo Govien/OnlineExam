@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "41BB631B182BDB2200FCEE17"
-               BuildableName = "onlineExam.app"
-               BlueprintName = "onlineExam"
+               BlueprintIdentifier = "41B211C5180E96E0005240F9"
+               BuildableName = "OnlineExam.app"
+               BlueprintName = "OnlineExam"
                ReferencedContainer = "container:OnlineExam.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "41BB6331182BDB2200FCEE17"
-               BuildableName = "onlineExamTests.xctest"
-               BlueprintName = "onlineExamTests"
+               BlueprintIdentifier = "41B211E0180E96E0005240F9"
+               BuildableName = "OnlineExamTests.xctest"
+               BlueprintName = "OnlineExamTests"
                ReferencedContainer = "container:OnlineExam.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "41BB631B182BDB2200FCEE17"
-            BuildableName = "onlineExam.app"
-            BlueprintName = "onlineExam"
+            BlueprintIdentifier = "41B211C5180E96E0005240F9"
+            BuildableName = "OnlineExam.app"
+            BlueprintName = "OnlineExam"
             ReferencedContainer = "container:OnlineExam.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,9 +61,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "41BB631B182BDB2200FCEE17"
-            BuildableName = "onlineExam.app"
-            BlueprintName = "onlineExam"
+            BlueprintIdentifier = "41B211C5180E96E0005240F9"
+            BuildableName = "OnlineExam.app"
+            BlueprintName = "OnlineExam"
             ReferencedContainer = "container:OnlineExam.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -79,9 +79,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "41BB631B182BDB2200FCEE17"
-            BuildableName = "onlineExam.app"
-            BlueprintName = "onlineExam"
+            BlueprintIdentifier = "41B211C5180E96E0005240F9"
+            BuildableName = "OnlineExam.app"
+            BlueprintName = "OnlineExam"
             ReferencedContainer = "container:OnlineExam.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

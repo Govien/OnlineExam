@@ -10,6 +10,5 @@
 @interface VCQuestion : UIViewController
 
 @property (nonatomic,retain)Chapter *chapter;
-@property BOOL isErrorShow;
 
 @end
