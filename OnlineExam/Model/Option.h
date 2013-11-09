@@ -14,6 +14,7 @@
 @property (strong, nonatomic)NSString *text;// 选项文本
 @property int no;// 选项编号
 @property BOOL isKey;// 是否正确
+@property NSString *value;
 
 - (id)initWithID:(int)ID questionId:(int)questionId text:(NSString *)text no:(int)no isKey:(BOOL)isKey;
 + (id)buildFromDictionary:(NSDictionary *)dictionary;

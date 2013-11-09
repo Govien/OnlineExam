@@ -35,6 +35,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    float systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (systemVersion >= 7.0) {
+        //某个仅支持7.0以上版本的方法
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     _dataHelper = [DataHelper init:self];
     self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg5.jpg"]];
     _lblTitle.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"item2"]];
@@ -154,6 +159,7 @@
     if([segue.identifier isEqualToString:@"question"]) {
         VCQuestion *vcQuestion = [segue destinationViewController];
         vcQuestion.chapter = sender;
+        vcQuestion.isErrorShow = _isErrorShow;
     }
 }
 

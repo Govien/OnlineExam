@@ -9,6 +9,9 @@
 
 #import "SegmentButtonView.h"
 
-@interface RecipeSegmentControl : UIView <SegmentButtonViewDelegate>
+@interface RecipeSegmentControl : UIView
+
+- (RecipeSegmentControl *)init:(id<SegmentButtonViewDelegate>)delegate;
+- (void)segmentButtonHighlighted:(SegmentButtonView *)highlightedSegmentButton;
 
 @end

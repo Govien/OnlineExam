@@ -19,6 +19,7 @@
     NSString *_username, *_password;
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *ivBg;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *layoutInit;// 初始化布局视图
 @property (weak, nonatomic) IBOutlet UIView *layoutRegist;// 注册布局视图
 @property (weak, nonatomic) IBOutlet UITextField *tfUsername;// 用户名
@@ -40,11 +41,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    float systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (systemVersion >= 7.0) {
+        //某个仅支持7.0以上版本的方法
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     if (self) {
         _dataHelper = [DataHelper init:self];
     }
     
-	self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_login.jpg"]];
+    self.ivBg.image = [UIImage imageNamed:@"bg_login.jpg"];
     
     // 设置注册布局圆角
     self.layoutRegist.layer.masksToBounds = YES;
