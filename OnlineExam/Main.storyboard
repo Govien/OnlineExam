@@ -468,7 +468,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ogm-4t-sRJ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ogm-4t-sRJ">
                                 <rect key="frame" x="20" y="34" width="280" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -570,9 +570,12 @@
         <image name="book_open.png" width="92" height="127"/>
         <image name="btn_answer.png" width="132" height="52"/>
         <image name="btn_blue.png" width="172" height="42"/>
+        <image name="btn_blue.png" width="172" height="42"/>
+        <image name="btn_gray.png" width="172" height="42"/>
         <image name="btn_gray.png" width="172" height="42"/>
         <image name="btn_next.png" width="122" height="52"/>
         <image name="btn_pre.png" width="122" height="52"/>
+        <image name="ic_close.png" width="30" height="30"/>
         <image name="ic_close.png" width="30" height="30"/>
         <image name="ic_feeckback.png" width="24" height="24"/>
         <image name="ic_logout.png" width="24" height="24"/>
