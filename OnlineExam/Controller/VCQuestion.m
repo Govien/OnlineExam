@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblNo;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UIView *vContent;
+@property (weak, nonatomic) IBOutlet UIScrollView *svContent;
+@property (weak, nonatomic) IBOutlet UIImageView *ivLine;
 
 @end
 
@@ -84,8 +86,14 @@ static const int _pageSize = 10;
     [mutableNo appendFormat:@" 第%d / %d题：", _lastOrder, _questionCount];
     _lblNo.text = mutableNo;
     _lblTitle.text = question.title;
+    _lblTitle.lineBreakMode = NSLineBreakByWordWrapping;
+    int titleWidth = _lblTitle.frame.size.width;
+    CGSize sizeFrame =[question.title sizeWithFont:_lblTitle.font constrainedToSize:CGSizeMake(titleWidth, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    _lblTitle.frame = CGRectMake(_lblTitle.frame.origin.x,5,titleWidth,sizeFrame.height);
+    _ivLine.frame = CGRectMake(_ivLine.frame.origin.x, _lblTitle.frame.size.height + 10, _ivLine.frame.size.width, _ivLine.frame.size.height);
     _optionView = [[OptionView alloc] initWithQuestion:question optionDelegate:self];
-    [_vContent addSubview:_optionView];
+    _optionView.frame = CGRectOffset(_optionView.frame, 20, _ivLine.frame.origin.y + 8);
+    [_svContent addSubview:_optionView];
 }
 
 // 显示上一问题
