@@ -50,8 +50,6 @@
         _dataHelper = [DataHelper init:self];
     }
     
-    self.ivBg.image = [UIImage imageNamed:@"bg_login.jpg"];
-    
     // 设置注册布局圆角
     self.layoutRegist.layer.masksToBounds = YES;
     self.layoutRegist.layer.cornerRadius = 6.0;

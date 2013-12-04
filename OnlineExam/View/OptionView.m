@@ -27,8 +27,8 @@
     // 选项背景图片，正常状态和高亮状态
     UIImage *bgNormal = [UIImage imageNamed:@"btn_gray"];
     UIImage *bgHighlight = [UIImage imageNamed:@"btn_blue"];
-    CGFloat top = 10; // 顶端盖高度
-    CGFloat bottom = 10 ; // 底端盖高度
+    CGFloat top = 20; // 顶端盖高度
+    CGFloat bottom = 20 ; // 底端盖高度
     CGFloat left = 30; // 左端盖宽度
     CGFloat right = 30; // 右端盖宽度
     UIEdgeInsets insets = UIEdgeInsetsMake(top, left, bottom, right);
@@ -52,33 +52,43 @@
     float yOffset = 0;// 选项控件Y方向偏移
     for (int i = 0; i < options.count; i ++) {
         Option *option = options[i];
-        [self addViewWithOption:option imgArray:imgArray yOffset:yOffset];
-        yOffset += 45;
+        yOffset += [self addViewWithOption:option imgArray:imgArray yOffset:yOffset];
+        yOffset += 5;
     }
     self.frame = CGRectMake(0, 0, 280, yOffset);
     return self;
 }
 
-- (void)addViewWithOption:(Option *)option imgArray:(NSArray *)imgArray yOffset:(float)yOffset {
+- (int)addViewWithOption:(Option *)option imgArray:(NSArray *)imgArray yOffset:(float)yOffset {
     UIControl *cOption = [[UIControl alloc] initWithFrame:CGRectMake(0, yOffset, 280, 40)];
+    
+    // 选项的文本
+    UILabel *text = [[UILabel alloc] initWithFrame:CGRectMake(45, 6, 230, 0)];
+    text.backgroundColor = [UIColor clearColor];
+    text.textColor = [UIColor whiteColor];
+    text.font = [UIFont systemFontOfSize:14];
+    text.text = option.text;
+    text.lineBreakMode = NSLineBreakByWordWrapping;
+    text.numberOfLines = 0;
+    CGSize sizeFrame =[option.text sizeWithFont:text.font constrainedToSize:CGSizeMake(text.frame.size.width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    text.frame = CGRectMake(45,6,sizeFrame.width,sizeFrame.height);
+    
     // 选项背景图片控件
     UIImageView *ivBg = [[UIImageView alloc] initWithImage:imgArray[0] highlightedImage:imgArray[1]];
-    ivBg.frame = CGRectMake(0, 0, 280, 40);
+    ivBg.frame = CGRectMake(0, 0, 280, text.frame.size.height + 14);
     ivBg.tag = 1;
-    [cOption addSubview:ivBg];
     
     // 选项左边ICON图片控件
     UIImageView *ivHead = [[UIImageView alloc] initWithImage:imgArray[2] highlightedImage:imgArray[3]];
-    ivHead.frame = CGRectMake(0, 5, 40, 30);
+    int imageW = ivHead.image.size.width;
+    int imageH = ivHead.image.size.height;
+    ivHead.frame = CGRectMake(0, (ivBg.frame.size.height - imageH)/2, imageW, imageH);
     ivHead.tag = 2;
-    [cOption addSubview:ivHead];
     
-    // 选项的文本
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(50, 5, 225, 28)];
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor whiteColor];
-    label.text = option.text;
-    [cOption addSubview:label];
+    [cOption addSubview:ivBg];
+    [cOption addSubview:ivHead];
+    [cOption addSubview:text];
+    cOption.frame = CGRectMake(0, yOffset, 280, ivBg.frame.size.height);
     
     // 添加选项点击事件监听
     if (_question.type == QuestionTypeRadio || _question.type == QuestionTypeJudge) {
@@ -89,6 +99,7 @@
     [self addSubview:cOption];
     objc_setAssociatedObject(cOption, &"option", option, OBJC_ASSOCIATION_RETAIN);
     [_optionControls addObject:cOption];
+    return cOption.frame.size.height;
 }
 
 // 单选事件监听

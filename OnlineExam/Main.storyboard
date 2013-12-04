@@ -75,8 +75,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6vw-Tr-veQ">
-                                        <rect key="frame" x="256" y="6" width="18" height="18"/>
+                                        <rect key="frame" x="250" y="6" width="24" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="2"/>
                                         <state key="normal" image="ic_close.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -155,8 +156,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bh8-Nc-Wjb">
-                                        <rect key="frame" x="256" y="6" width="18" height="18"/>
+                                        <rect key="frame" x="250" y="6" width="24" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="2"/>
                                         <state key="normal" image="ic_close.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -365,7 +367,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="58" sectionHeaderHeight="10" sectionFooterHeight="10" id="rot-BX-Ikp">
-                                <rect key="frame" x="0.0" y="150" width="320" height="298"/>
+                                <rect key="frame" x="0.0" y="150" width="320" height="266"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -468,22 +470,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ogm-4t-sRJ">
-                                <rect key="frame" x="20" y="34" width="280" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="I1d-YK-xKE">
-                                <rect key="frame" x="15" y="100" width="290" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" id="p1Z-xj-1Da">
-                                <rect key="frame" x="20" y="110" width="280" height="248"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DEE-cD-jCV">
+                                <rect key="frame" x="0.0" y="30" width="320" height="338"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ogm-4t-sRJ">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="I1d-YK-xKE">
+                                        <rect key="frame" x="15" y="0.0" width="290" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" id="p1Z-xj-1Da">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg3.png" id="DpE-gx-p7f">
                                 <rect key="frame" x="0.0" y="370" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -523,8 +532,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="jeG-gy-mN5"/>
                     <connections>
+                        <outlet property="ivLine" destination="I1d-YK-xKE" id="YQg-nG-owd"/>
                         <outlet property="lblNo" destination="rE8-U8-F6C" id="hNn-MH-Rhu"/>
                         <outlet property="lblTitle" destination="Ogm-4t-sRJ" id="iAS-Cp-bUc"/>
+                        <outlet property="svContent" destination="DEE-cD-jCV" id="6Ih-gl-uNm"/>
                         <outlet property="vContent" destination="p1Z-xj-1Da" id="V8N-O5-pol"/>
                     </connections>
                 </viewController>
@@ -565,17 +576,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default.png" width="640" height="960"/>
+        <image name="Default.png" width="320" height="480"/>
         <image name="bg3.png" width="128" height="128"/>
         <image name="book_open.png" width="92" height="127"/>
         <image name="btn_answer.png" width="132" height="52"/>
         <image name="btn_blue.png" width="172" height="42"/>
-        <image name="btn_blue.png" width="172" height="42"/>
-        <image name="btn_gray.png" width="172" height="42"/>
         <image name="btn_gray.png" width="172" height="42"/>
         <image name="btn_next.png" width="122" height="52"/>
         <image name="btn_pre.png" width="122" height="52"/>
-        <image name="ic_close.png" width="30" height="30"/>
         <image name="ic_close.png" width="30" height="30"/>
         <image name="ic_feeckback.png" width="24" height="24"/>
         <image name="ic_logout.png" width="24" height="24"/>

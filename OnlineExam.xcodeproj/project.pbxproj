@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		413FB489182CE13B001781D0 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 413FB487182CE13B001781D0 /* logo@2x.png */; };
 		413FB48D182CE429001781D0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 413FB48A182CE429001781D0 /* Default.png */; };
-		413FB48E182CE429001781D0 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 413FB48B182CE429001781D0 /* Default~iphone.png */; };
 		413FB48F182CE429001781D0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 413FB48C182CE429001781D0 /* Default-568h@2x.png */; };
 		413FE243182CFC3E0062D25C /* logo_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 413FE242182CFC3E0062D25C /* logo_120.png */; };
 		4141487A181684DC00830B78 /* line1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41414879181684DC00830B78 /* line1.png */; };
@@ -67,6 +66,7 @@
 		41AE7220182BE0EC009804E9 /* ic_feeckback.png in Resources */ = {isa = PBXBuildFile; fileRef = 41AE721D182BE0EC009804E9 /* ic_feeckback.png */; };
 		41AE7221182BE0EC009804E9 /* ic_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 41AE721E182BE0EC009804E9 /* ic_logout.png */; };
 		41AF8CB0181A6218009DE7D5 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AF8CAF181A6218009DE7D5 /* CMPopTipView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		41B1666C184588170070AABC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41B1666B184588170070AABC /* Default@2x.png */; };
 		41B211CA180E96E0005240F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211C9180E96E0005240F9 /* Foundation.framework */; };
 		41B211CC180E96E0005240F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211CB180E96E0005240F9 /* CoreGraphics.framework */; };
 		41B211CE180E96E0005240F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B211CD180E96E0005240F9 /* UIKit.framework */; };
@@ -140,7 +140,6 @@
 /* Begin PBXFileReference section */
 		413FB487182CE13B001781D0 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		413FB48A182CE429001781D0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		413FB48B182CE429001781D0 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		413FB48C182CE429001781D0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		413FE242182CFC3E0062D25C /* logo_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_120.png; sourceTree = "<group>"; };
 		41414879181684DC00830B78 /* line1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line1.png; sourceTree = "<group>"; };
@@ -211,6 +210,7 @@
 		41AE721E182BE0EC009804E9 /* ic_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_logout.png; sourceTree = "<group>"; };
 		41AF8CAE181A6218009DE7D5 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
 		41AF8CAF181A6218009DE7D5 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
+		41B1666B184588170070AABC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		41B211C6180E96E0005240F9 /* OnlineExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B211C9180E96E0005240F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		41B211CB180E96E0005240F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -488,7 +488,7 @@
 				41ACF94718167BFF00EC29A6 /* btn_pre.png */,
 				413FB48C182CE429001781D0 /* Default-568h@2x.png */,
 				413FB48A182CE429001781D0 /* Default.png */,
-				413FB48B182CE429001781D0 /* Default~iphone.png */,
+				41B1666B184588170070AABC /* Default@2x.png */,
 				41B21202180EAACA005240F9 /* ic_close.png */,
 				41B21201180EAACA005240F9 /* ic_close_active.png */,
 				41AE721D182BE0EC009804E9 /* ic_feeckback.png */,
@@ -761,7 +761,6 @@
 				41A67AD018121A4600ABE38F /* book_new.png in Resources */,
 				41DF37C518213A2B0034B916 /* alert-green-button@2x.png in Resources */,
 				41ACF94818167BFF00EC29A6 /* btn_answer.png in Resources */,
-				413FB48E182CE429001781D0 /* Default~iphone.png in Resources */,
 				41A67AD918121A4600ABE38F /* recipe_tab_2_active@2x.png in Resources */,
 				41DF37C618213A2B0034B916 /* alert-red-button.png in Resources */,
 				41A67ADB18121A4600ABE38F /* recipe_tab_2@2x.png in Resources */,
@@ -813,6 +812,7 @@
 				41A67ACE18121A4600ABE38F /* bg2.png in Resources */,
 				41B21203180EAACA005240F9 /* ic_close_active.png in Resources */,
 				41A67AD618121A4600ABE38F /* recipe_tab_1.png in Resources */,
+				41B1666C184588170070AABC /* Default@2x.png in Resources */,
 				41DF37C818213A2B0034B916 /* alert-window-landscape.png in Resources */,
 				41ACF93118160FAA00EC29A6 /* bg3.png in Resources */,
 				41A67AD118121A4600ABE38F /* book_open.png in Resources */,
@@ -996,15 +996,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: jameskyyab xu (RWU3H5QCZ9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OnlineExam/OnlineExam-Prefix.pch";
 				INFOPLIST_FILE = "OnlineExam/OnlineExam-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E05C4703-D1FE-480B-97B1-C7B9A94BBFC3";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1014,15 +1014,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: jameskyyab xu (RWU3H5QCZ9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OnlineExam/OnlineExam-Prefix.pch";
 				INFOPLIST_FILE = "OnlineExam/OnlineExam-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E05C4703-D1FE-480B-97B1-C7B9A94BBFC3";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
