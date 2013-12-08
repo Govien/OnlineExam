@@ -19,7 +19,6 @@
     NSString *_username, *_password;
 }
 
-@property (weak, nonatomic) IBOutlet UIImageView *ivBg;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *layoutInit;// 初始化布局视图
 @property (weak, nonatomic) IBOutlet UIView *layoutRegist;// 注册布局视图
 @property (weak, nonatomic) IBOutlet UITextField *tfUsername;// 用户名
